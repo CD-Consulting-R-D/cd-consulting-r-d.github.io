@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CD Consulting R&amp;D</title>
+  <meta name="description" content="CD Consulting R&amp;D - site under construction. Knowledge bases and a knowledge-base chatbot are in preparation.">
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f6f3;
+      color: #1a1a1a;
+      padding: 3rem 2rem;
+      line-height: 1.6;
+    }
+    /* centrage vertical par marge auto : ne rogne jamais le haut quand le
+       contenu depasse la hauteur de fenetre (contrairement a align-items) */
+    main { max-width: 40rem; width: 100%; margin: auto; }
+
+    .mark {
+      font-size: 0.78rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #3d6478;
+      margin-bottom: 1.4rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 5.5vw, 2.9rem);
+      font-weight: 400;
+      line-height: 1.15;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 2.6rem;
+    }
+
+    .banner {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 2rem;
+      padding: 0.5rem 1.4rem;
+      border: 1px solid #3d6478;
+      border-radius: 2px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #3d6478;
+    }
+
+    section { margin-bottom: 2.6rem; }
+    h2 {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #3d6478;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid #ddd8cf;
+      margin-bottom: 1.3rem;
+    }
+
+    ul { list-style: none; }
+    li { margin-bottom: 1.15rem; }
+    li:last-child { margin-bottom: 0; }
+
+    code {
+      font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+      font-size: 0.92rem;
+      color: #1a1a1a;
+      background: #ecebe6;
+      padding: 0.12rem 0.42rem;
+      border-radius: 2px;
+    }
+    .note {
+      display: block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      color: #555;
+      margin-top: 0.35rem;
+    }
+    .topics {
+      list-style: none;
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid #ddd8cf;
+    }
+    .topics li {
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+    .soon {
+      font-family: system-ui, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a8578;
+      margin-left: 0.6rem;
+      white-space: nowrap;
+    }
+
+    dl { font-size: 1rem; }
+    dt {
+      font-family: system-ui, sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a8578;
+      margin-bottom: 0.25rem;
+    }
+    dd { margin-bottom: 1.1rem; }
+    dd:last-child { margin-bottom: 0; }
+
+    a { color: #3d6478; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
+    a:hover { border-bottom-color: #3d6478; }
+
+    footer {
+      margin-top: 3.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #ddd8cf;
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+      color: #8a8578;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #12151a; color: #eceef1; }
+      .lead, .note, .topics li { color: #a8adb6; }
+      .mark, h2, .banner, a { color: #8fb3c4; }
+      .banner { border-color: #8fb3c4; }
+      h2, footer, .topics { border-color: #2a3038; }
+      code { background: #1d222a; color: #eceef1; }
+      .soon, dt, footer { color: #767c86; }
+      a { border-bottom-color: #3a4a56; }
+      a:hover { border-bottom-color: #8fb3c4; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="mark">CD Consulting R&amp;D</p>
+    <h1>Under construction</h1>
+    <p class="lead">This site is being built. The projects listed below will be served under this domain.</p>
+    <p class="banner">Nothing published yet</p>
+
+    <section>
+      <h2>Upcoming projects</h2>
+      <ul>
+        <li>
+          <code>/knowledgebase</code><span class="soon">planned</span>
+          <span class="note">Topics to be covered:</span>
+          <ul class="topics">
+            <li>Computer Science and AI</li>
+            <li>Finance Economics Law &amp; Risk Datamart</li>
+            <li>Philosophy</li>
+          </ul>
+        </li>
+        <li><code>/KB-RISK</code><span class="soon">planned</span></li>
+        <li><code>/KB-FIN</code><span class="soon">planned</span></li>
+        <li><code>/KB-PHI</code><span class="soon">planned</span></li>
+        <li><code>/KB-AI</code><span class="soon">planned</span></li>
+        <li><code>/chatbot-knowledgebase</code><span class="soon">planned</span></li>
+      </ul>
+      <p class="note">These paths are not live yet. They are listed here to announce what the domain will serve.</p>
+    </section>
+
+    <section>
+      <h2>Site Owner</h2>
+      <dl>
+        <dt>Owner</dt>
+        <dd>Christo Datso</dd>
+        <dt>Prototypes</dt>
+        <dd><a href="https://www.cdatso.be">www.cdatso.be</a></dd>
+        <dt>Code</dt>
+        <dd><a href="https://github.com/CD-Consulting-R-D">github.com/CD-Consulting-R-D</a></dd>
+      </dl>
+    </section>
+
+    <footer>cd-consulting-rd.be &mdash; placeholder page, served by GitHub Pages</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Premiere ligne volontairement en commentaire (patron N-4) : si un BOM
+# se glisse en tete de fichier, il ne corrompt qu'un commentaire.
+node_modules/
+.env*
+*.key
+*.pem
+secrets*
+.netlify/
