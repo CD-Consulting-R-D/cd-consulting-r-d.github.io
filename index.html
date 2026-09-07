@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CD Consulting R&amp;D</title>
-  <meta name="description" content="CD Consulting R&amp;D - site under construction. Knowledge bases and a knowledge-base chatbot are in preparation.">
+  <meta name="description" content="Independent analyses of technology, AI and risk, compiled from public sources.">
   <style>
     :root { color-scheme: light dark; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,6 +56,35 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #3d6478;
+    }
+
+    .latest {
+      max-width: 26rem;
+      margin: 0 auto 2rem;
+      padding: 1rem 1.4rem;
+      border: 1px solid #3d6478;
+      border-radius: 2px;
+    }
+    .latest .label {
+      display: block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #3d6478;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .latest ul { list-style: none; }
+    .latest li { margin-bottom: 0.7rem; text-align: center; }
+    .latest li:last-child { margin-bottom: 0; }
+    .latest li a { font-size: 0.98rem; }
+    .latest .latest-date {
+      display: block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+      color: #8a8578;
+      margin-top: 0.3rem;
     }
 
     section { margin-bottom: 2.6rem; }
@@ -139,8 +168,9 @@
     @media (prefers-color-scheme: dark) {
       body { background: #12151a; color: #eceef1; }
       .lead, .note, .topics li { color: #a8adb6; }
-      .mark, h2, .banner, a { color: #8fb3c4; }
-      .banner { border-color: #8fb3c4; }
+      .mark, h2, .banner, .latest, .latest .label, a { color: #8fb3c4; }
+      .banner, .latest { border-color: #8fb3c4; }
+      .latest .latest-date { color: #767c86; }
       h2, footer, .topics { border-color: #2a3038; }
       code { background: #1d222a; color: #eceef1; }
       .soon, dt, footer { color: #767c86; }
@@ -152,9 +182,17 @@
 <body>
   <main>
     <p class="mark">CD Consulting R&amp;D</p>
-    <h1>Under construction</h1>
-    <p class="lead">This site is being built. The projects listed below will be served under this domain.</p>
-    <p class="banner">Nothing published yet</p>
+    <h1>Knowledge Base</h1>
+    <p class="lead">Independent analyses of technology, AI and risk, compiled from public sources.</p>
+    <div class="latest">
+      <span class="label">Latest · KB-RISK</span>
+      <ul>
+        <li>
+          <a href="KB-RISK/4f2a.html">WEF Global Risks Reports 2020–2026: the rise of AI risk</a>
+          <span class="latest-date">7 September 2026</span>
+        </li>
+      </ul>
+    </div>
 
     <section>
       <h2>Upcoming projects</h2>

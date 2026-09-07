@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology, Information and AI Risks — WEF Global Risks Reports 2020–2026 — CD Consulting R&amp;D</title>
+<meta name="description" content="A synthesis of the seven-edition comparative analysis of technology, information and AI risks in the WEF Global Risks Reports, 2020-2026.">
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#f7f6f3; --panel:#ffffff; --ink:#1a1a1a; --muted:#555; --rule:#ddd8cf;
+  --accent:#3d6478; --accent-soft:#ecebe6;
+  --ai:#8a5a1f; --ai-soft:#f2e8d8;
+  --tech:#3d6478; --warn:#8c2f22;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"Courier New",monospace;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  display:flex;justify-content:center;
+  font-family:var(--serif);background:var(--bg);color:var(--ink);
+  font-size:16px;line-height:1.62;
+  padding:3rem 1.4rem 4rem;
+}
+.wrap{max-width:40rem;width:100%}
+.mark{font-family:var(--sans);font-size:0.78rem;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.4rem;text-align:center}
+nav.crumbs{font-family:var(--sans);font-size:0.78rem;text-align:center;color:#8a8578;margin-bottom:1.6rem}
+nav.crumbs a{color:var(--accent);text-decoration:none;border-bottom:1px solid #b9c8d0}
+nav.crumbs a:hover{border-bottom-color:var(--accent)}
+.cartouche{font-family:var(--sans);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;
+  color:#8a8578;text-align:center;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--rule)}
+
+header.masthead{margin-bottom:2rem}
+.eyebrow{font-family:var(--sans);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);text-align:center;margin-bottom:0.9rem}
+h1{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.2;font-weight:400;text-align:center;margin-bottom:1rem}
+.standfirst{font-size:1.02rem;line-height:1.55;color:var(--muted);text-align:center;margin-bottom:1.1rem}
+.meta{font-family:var(--sans);font-size:0.8rem;color:#8a8578;text-align:center;line-height:1.7}
+
+h2{font-size:1.05rem;font-weight:400;color:var(--accent);padding-bottom:0.5rem;
+  border-bottom:1px solid var(--rule);margin:2.6rem 0 1.2rem}
+h2 .num{font-family:var(--sans);font-size:0.72rem;color:var(--accent);
+  display:block;letter-spacing:0.12em;margin-bottom:0.4rem;text-transform:uppercase}
+h3{font-size:1rem;font-weight:700;margin:1.7rem 0 0.7rem}
+p{margin-bottom:1.05rem}
+a{color:var(--accent)}
+strong{font-weight:700}
+em{font-style:italic}
+.lede{font-size:1.05rem}
+ul,ol{padding-left:1.4rem;margin:0 0 1.1rem}
+li{margin-bottom:0.55rem}
+
+.grid{display:grid;gap:0.85rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:1.6rem 0 1.8rem}
+.stat{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:0.9rem 1rem}
+.stat .n{font-family:var(--serif);font-size:1.7rem;line-height:1;font-weight:700;color:var(--accent)}
+.stat.ai .n{color:var(--ai)}
+.stat .l{font-family:var(--sans);font-size:0.76rem;color:var(--muted);margin-top:0.55rem;line-height:1.4}
+
+.scroll{overflow-x:auto;margin:1.4rem 0;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:30rem;font-size:0.84rem}
+caption{caption-side:top;text-align:left;font-family:var(--sans);font-size:0.76rem;color:var(--muted);
+  padding:0.8rem 0.9rem 0.65rem;border-bottom:1px solid var(--rule)}
+th,td{padding:0.55rem 0.75rem;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{background:var(--accent-soft);font-family:var(--sans);font-size:0.7rem;letter-spacing:0.05em;
+  text-transform:uppercase;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:center;font-family:var(--mono);font-size:0.8rem;white-space:nowrap}
+tr.ai{background:var(--ai-soft)}
+tr.ai td:first-child{font-weight:700;color:var(--ai)}
+.dim{color:var(--muted);font-style:italic}
+.top{font-weight:700;color:var(--tech)}
+
+blockquote{margin:1.5rem 0;padding:1rem 1.3rem;border-left:3px solid var(--accent);
+  background:var(--panel);border-radius:0 6px 6px 0;font-style:italic}
+blockquote p{margin-bottom:0.6rem}
+blockquote p:last-child{margin-bottom:0}
+blockquote cite{display:block;margin-top:0.6rem;font-family:var(--sans);font-style:normal;
+  font-size:0.72rem;color:var(--muted)}
+
+.callout{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--warn);
+  border-radius:0 6px 6px 0;padding:1rem 1.2rem;margin:1.6rem 0}
+.callout h3{margin:0 0 0.5rem;color:var(--warn);font-size:0.86rem}
+.callout p{margin-bottom:0.5rem;font-size:0.9rem}
+.callout p:last-child{margin-bottom:0}
+
+figure{margin:1.6rem 0}
+figure svg{display:block;width:100%;height:auto;background:var(--panel);
+  border:1px solid var(--rule);border-radius:6px}
+figcaption{font-family:var(--sans);font-size:0.78rem;color:var(--muted);margin-top:0.6rem;line-height:1.5}
+
+.timeline{list-style:none;padding:0;margin:1.5rem 0 1.7rem;max-width:none}
+.timeline li{display:grid;grid-template-columns:52px 1fr;gap:0.9rem;padding:0.85rem 0;
+  border-bottom:1px solid var(--rule);margin:0}
+.timeline li:last-child{border-bottom:none}
+.timeline .yr{font-family:var(--mono);font-size:0.86rem;font-weight:700;color:var(--accent)}
+.timeline .body{font-size:0.86rem;line-height:1.55}
+.timeline .body b{display:block;margin-bottom:0.2rem;font-size:0.86rem}
+.timeline li.mark .yr{color:var(--ai)}
+.timeline li.mark{background:var(--ai-soft);margin:0 -0.8rem;padding:0.85rem 0.8rem;border-radius:5px;
+  border-bottom:none}
+
+footer{margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:0.76rem;color:#8a8578;line-height:1.6}
+footer p{margin-bottom:0.9rem}
+footer p:last-child{margin-bottom:0}
+footer h2{font-size:0.72rem;color:#8a8578;border:none;padding:0;margin:1.6rem 0 0.6rem}
+footer ol.srclist{padding-left:1.3rem}
+footer ol.srclist li{margin-bottom:0.5rem;word-break:break-all}
+.legend{display:flex;flex-wrap:wrap;gap:1rem;font-family:var(--sans);font-size:0.74rem;
+  color:var(--muted);margin:0.8rem 0 0}
+.legend span{display:inline-flex;align-items:center;gap:0.4rem}
+.sw{width:0.7rem;height:0.7rem;border-radius:2px;display:inline-block}
+.backlinks{text-align:center;margin-top:2rem;font-size:0.82rem}
+
+@media (max-width:640px){
+  .timeline li{grid-template-columns:42px 1fr;gap:0.6rem}
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#12151a; --panel:#181c23; --ink:#eceef1; --muted:#a8adb6; --rule:#2a3038;
+    --accent:#8fb3c4; --accent-soft:#1d222a;
+    --ai:#d9a35e; --ai-soft:#241d13;
+    --tech:#8fb3c4; --warn:#c98776;
+  }
+  .mark,h2,a,footer h2{color:#8fb3c4}
+  nav.crumbs,.cartouche,.meta,footer,.eyebrow{color:#767c86}
+  nav.crumbs a{color:#8fb3c4}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="mark">CD Consulting R&amp;D</p>
+<nav class="crumbs"><a href="../index.html">Home</a> · <a href="./">KB-RISK</a> · Entry 1 · Synthesis</nav>
+<p class="cartouche">CD Consulting R&amp;D · KB-RISK · entry 1 companion · compiled 2026-09-07 from the seven public WEF Global Risks Reports · published 7 September 2026</p>
+
+<header class="masthead">
+  <p class="eyebrow">Comparative analysis · Seven editions</p>
+  <h1>Technology, Information and AI Risks in the WEF Global Risks Reports, 2020–2026</h1>
+  <p class="standfirst">How the World Economic Forum's expert panel came to rank artificial
+  intelligence among the five most severe global risks of the next decade — while still placing
+  it thirtieth over the next two years.</p>
+  <p class="meta">
+    Source: WEF Global Risks Reports 2020, 2021, 2022, 2023, 2024, 2025, 2026 — annual summary
+    sections<br>
+    Compiled 7 September 2026 · Synthesis of a longer report and dataset
+  </p>
+</header>
+
+<p class="lede">Across seven editions the Global Risks Report has rebuilt what it means by a
+technological risk. In 2020 the category was about systems failing — cyberattacks, data theft,
+infrastructure breakdown. By 2026 it is about truth failing, work disappearing and control
+slipping: misinformation second over two years, AI fifth over ten. This page sets out the
+movement, the break year, and the one number that defines the AI risk.</p>
+
+<div class="grid">
+  <div class="stat"><div class="n">7</div><div class="l">editions compared,
+    2020 through 2026</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">incompatible survey regimes across
+    that span</div></div>
+  <div class="stat ai"><div class="n">2024</div><div class="l">first edition with a stand-alone
+    AI risk — entering at&nbsp;#6 over ten years</div></div>
+  <div class="stat ai"><div class="n">#30&nbsp;→&nbsp;#5</div><div class="l">AI's 2026 rank, two
+    years versus ten — the largest rise of all 33 risks</div></div>
+</div>
+
+<h2><span class="num">01</span>Read the ranks with care</h2>
+
+<p>The WEF changed its central question twice in seven years. In <strong>2020–2021</strong>
+risks were scored on likelihood and impact over ten years. In <strong>2021–2022</strong> a
+"Global Risks Horizon" question asked <em>when</em> a risk becomes a critical threat. Only from
+<strong>2023</strong> does a single question run consistently: estimate the likely impact
+(severity) over a two-year and a ten-year period.</p>
+
+<p>The list changed too — 30 risks in 2020, 37 in 2022, 33 in 2026 — and so did the names.
+<em>Cyber insecurity</em> became <em>Cyber espionage and warfare</em> in 2025 and reverted in
+2026. <em>Technological power concentration</em> was dropped after 2024. <em>Online harms</em>
+was added in 2025. And there is no stand-alone AI risk at all before the 2024 edition.</p>
+
+<div class="callout">
+  <h3>What this means for the comparison</h3>
+  <p>Only the 2023–2026 editions form a genuinely comparable series; they carry the quantitative
+  argument here. The 2020–2022 editions are read qualitatively, as the prehistory that makes the
+  2024 break legible. A risk that falls in rank has not necessarily eased — rank is zero-sum, and
+  the list it sits in may have changed length.</p>
+</div>
+
+<h2><span class="num">02</span>Seven years in one column</h2>
+
+<ul class="timeline">
+  <li><span class="yr">2020</span><span class="body"><b>Technology as an infrastructure and
+    governance problem.</b> Data fraud (#6) and cyberattacks (#7) in the likelihood top 10;
+    information infrastructure breakdown (#6) and cyberattacks (#8) by impact. AI appears in the
+    <em>Wild Wide Web</em> chapter as an upside — "expected to boost global growth by 14% by
+    2030."</span></li>
+  <li><span class="yr">2021</span><span class="body"><b>The pandemic reframes technology as
+    dependency and divide.</b> Digital power concentration (#6) and digital inequality (#7) by
+    likelihood. In the new horizon question, <em>Adverse tech advances</em> ranks #4 among
+    5-to-10-year "existential threats" — the long-horizon anxiety that AI will later carry,
+    without the name.</span></li>
+  <li><span class="yr">2022</span><span class="body"><b>The trough — and the WEF's own warning.</b>
+    No technological risk in the ten-year top 10. The report calls this "a possible blind
+    spot."</span></li>
+  <li><span class="yr">2023</span><span class="body"><b>Cyber promoted, AI absent.</b>
+    <em>Widespread cybercrime and cyber insecurity</em> enters both top 10s at #8. The survey
+    closed in autumn 2022, before generative AI reached the public; there are thirteen mentions of
+    AI in the whole document.</span></li>
+  <li class="mark"><span class="yr">2024</span><span class="body"><b>The break.</b>
+    Misinformation takes #1 over two years — the first technological risk ever to top the
+    ranking. <em>Adverse outcomes of AI technologies</em> enters the list and lands at #6 over ten
+    years. And "AI-generated misinformation and disinformation" is named the #2 current crisis of
+    the year, by 53% of respondents.</span></li>
+  <li><span class="yr">2025</span><span class="body"><b>Consolidation, and a warning against
+    complacency.</b> Misinformation holds #1; AI holds #6 over ten years but slips to #31 over
+    two. Under the heading "Technological risks — still under the radar," the report writes that
+    "complacency around the risks of such technologies should be avoided."</span></li>
+  <li class="mark"><span class="yr">2026</span><span class="body"><b>AI arrives in the present
+    tense.</b> Geoeconomic confrontation takes #1, pushing misinformation to #2 — but
+    misinformation rises to #4 over ten years, its best long-term placement. AI is a new entrant
+    to the current-risk top 10 at #8, and the report names it "the risk with the largest rise in
+    ranking over time."</span></li>
+</ul>
+
+<h2><span class="num">03</span>The comparable series, 2023–2026</h2>
+
+<div class="scroll">
+<table>
+  <caption>Severity ranks, short term (2 years) / long term (10 years). Lower is more severe.
+    Risks ranked: 32 in 2023, 34 in 2024, 33 in 2025 and 2026.</caption>
+  <thead><tr>
+    <th>Technological risk</th><th class="n">2023</th><th class="n">2024</th>
+    <th class="n">2025</th><th class="n">2026</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Misinformation and disinformation</td>
+      <td class="n">16 / 11</td><td class="n"><span class="top">1</span> / 5</td>
+      <td class="n"><span class="top">1</span> / 5</td>
+      <td class="n">2 / <span class="top">4</span></td></tr>
+    <tr><td>Cyber <span class="dim">(insecurity → espionage &amp; warfare → insecurity)</span></td>
+      <td class="n">8 / 8</td><td class="n">4 / 8</td><td class="n">5 / 9</td>
+      <td class="n">6 / 8</td></tr>
+    <tr class="ai"><td>Adverse outcomes of AI technologies</td>
+      <td class="n dim">not in list</td><td class="n">29 / <span class="top">6</span></td>
+      <td class="n">31 / <span class="top">6</span></td>
+      <td class="n">30 / <span class="top">5</span></td></tr>
+    <tr><td>Censorship and surveillance</td>
+      <td class="n dim">not in list</td><td class="n">21 / 14</td><td class="n">16 / 14</td>
+      <td class="n">14 / 15</td></tr>
+    <tr><td>Online harms</td>
+      <td class="n dim">not in list</td><td class="n dim">not in list</td>
+      <td class="n">14 / 22</td><td class="n">12 / 18</td></tr>
+    <tr><td>Technological power concentration</td>
+      <td class="n">29 / 17</td><td class="n">12 / 12</td>
+      <td class="n dim">dropped</td><td class="n dim">dropped</td></tr>
+    <tr><td>Adverse outcomes of frontier technologies
+      <span class="dim">(quantum, biotech, geoengineering)</span></td>
+      <td class="n">32 / 18</td><td class="n">34 / 24</td><td class="n">33 / 23</td>
+      <td class="n">33 / 25</td></tr>
+    <tr><td>Breakdown of critical information infrastructure</td>
+      <td class="n">24 / 16</td><td class="n dim">dropped</td>
+      <td class="n dim">dropped</td><td class="n dim">dropped</td></tr>
+    <tr><td>Digital inequality</td>
+      <td class="n">31 / 30</td><td class="n dim">dropped</td>
+      <td class="n dim">dropped</td><td class="n dim">dropped</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The series stabilises after 2024: two technological risks in the two-year top 10 and three in
+the ten-year top 10, every year. What moves is composition, not volume — misinformation deepens
+long term, censorship and surveillance is the only technological risk climbing steadily on the
+short horizon, and concentration is reclassified out of the category into an economic risk,
+<em>Concentration of strategic resources and technologies</em>.</p>
+
+<h2><span class="num">04</span>The AI gap, measured</h2>
+
+<figure>
+<svg viewBox="0 0 760 300" role="img"
+     aria-label="Line chart of the rank of Adverse outcomes of AI technologies over two-year and
+     ten-year horizons in the 2024, 2025 and 2026 editions. The two-year rank stays near 30 while
+     the ten-year rank stays near 5.">
+  <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">
+    <!-- axes -->
+    <line x1="86" y1="42" x2="86" y2="244" stroke="var(--rule)" stroke-width="1"/>
+    <line x1="86" y1="244" x2="700" y2="244" stroke="var(--rule)" stroke-width="1"/>
+    <!-- y gridlines: rank 1 at y=52, rank 34 at y=238 -->
+    <g stroke="var(--rule)" stroke-width="1" stroke-dasharray="2 4">
+      <line x1="86" y1="52"  x2="700" y2="52"/>
+      <line x1="86" y1="107" x2="700" y2="107"/>
+      <line x1="86" y1="162" x2="700" y2="162"/>
+      <line x1="86" y1="217" x2="700" y2="217"/>
+    </g>
+    <g fill="var(--muted)" text-anchor="end">
+      <text x="76" y="56">#1</text>
+      <text x="76" y="111">#11</text>
+      <text x="76" y="166">#21</text>
+      <text x="76" y="221">#31</text>
+    </g>
+    <g fill="var(--muted)" text-anchor="middle">
+      <text x="180" y="264">2024</text>
+      <text x="393" y="264">2025</text>
+      <text x="606" y="264">2026</text>
+    </g>
+    <!-- ten-year line: ranks 6,6,5 -> y = 52 + (r-1)*5.5 -->
+    <polyline points="180,79.5 393,79.5 606,74"
+              fill="none" stroke="var(--ai)" stroke-width="2.5"/>
+    <!-- two-year line: ranks 29,31,30 -->
+    <polyline points="180,206 393,217 606,211.5"
+              fill="none" stroke="var(--accent)" stroke-width="2.5"
+              stroke-dasharray="6 4"/>
+    <!-- gap band -->
+    <g stroke="var(--muted)" stroke-width="1" stroke-dasharray="2 3" opacity=".6">
+      <line x1="180" y1="79.5" x2="180" y2="206"/>
+      <line x1="393" y1="79.5" x2="393" y2="217"/>
+      <line x1="606" y1="74"   x2="606" y2="211.5"/>
+    </g>
+    <!-- points + labels -->
+    <g fill="var(--ai)">
+      <circle cx="180" cy="79.5" r="4.5"/><circle cx="393" cy="79.5" r="4.5"/>
+      <circle cx="606" cy="74" r="4.5"/>
+      <text x="180" y="68" text-anchor="middle" font-weight="700">#6</text>
+      <text x="393" y="68" text-anchor="middle" font-weight="700">#6</text>
+      <text x="606" y="62" text-anchor="middle" font-weight="700">#5</text>
+    </g>
+    <g fill="var(--accent)">
+      <circle cx="180" cy="206" r="4.5"/><circle cx="393" cy="217" r="4.5"/>
+      <circle cx="606" cy="211.5" r="4.5"/>
+      <text x="180" y="226" text-anchor="middle" font-weight="700">#29</text>
+      <text x="393" y="237" text-anchor="middle" font-weight="700">#31</text>
+      <text x="606" y="231" text-anchor="middle" font-weight="700">#30</text>
+    </g>
+    <!-- series labels -->
+    <text x="640" y="74" fill="var(--ai)" font-weight="700" font-size="12">10 years</text>
+    <text x="640" y="215" fill="var(--accent)" font-weight="700" font-size="12">2 years</text>
+    <!-- title -->
+    <text x="86" y="26" fill="var(--ink)" font-family="Georgia,serif" font-size="15"
+          font-weight="600">Adverse outcomes of AI technologies — rank by horizon</text>
+    <text x="86" y="286" fill="var(--muted)" font-size="10">Rank axis inverted: higher on the
+      chart is more severe. Risk not in the list before the 2024 edition.</text>
+  </g>
+</svg>
+<figcaption>In every edition in which the risk has existed, AI has been top-six over ten years
+and near-bottom over two. The 2026 edition publishes both severity scores for the first time:
+<strong>3.50 out of 7 at two years, 5.28 at ten</strong> — a gap of 1.78 points, and a rank
+movement of twenty-five places, the largest of any of the 33 risks surveyed.</figcaption>
+</figure>
+
+<h3>Four readings of the gap</h3>
+<ol>
+  <li><strong>The panel is right and the risk is genuinely deferred.</strong> Labour displacement
+  at scale, military integration and information ubiquity are decade-scale phenomena.</li>
+  <li><strong>The panel is systematically late — and says so.</strong> The WEF has flagged this
+  twice: "a possible blind spot" on long-range technological risk (2022) and "complacency …
+  should be avoided" (2025). The corpus contains a documented lag: state-based armed conflict
+  "was overlooked as a leading two-year risk two years ago" before becoming the #1 current
+  risk.</li>
+  <li><strong>The instrument favours event-shaped risks.</strong> AI's short-term harms are
+  attributed elsewhere — a laid-off worker to <em>Lack of economic opportunity</em>, a deepfake
+  to <em>Misinformation</em>, an AI-enabled intrusion to <em>Cyber insecurity</em>. Both of the
+  latter sit in the 2026 two-year top 10, and both are described in that report as
+  AI-amplified.</li>
+  <li><strong>The instruments disagree, and the disagreement is the signal.</strong> The expert
+  panel puts AI at #30 over two years. The current-risk question puts it at #8 for 2026. The
+  Executive Opinion Survey has three countries ranking it their single most important national
+  risk and twenty placing it top-five. The two instruments closest to operating businesses are
+  the more alarmed.</li>
+</ol>
+
+<h2><span class="num">05</span>What the AI risk is now said to be</h2>
+
+<p>The content of the argument changed as decisively as the rank. The 2024 chapter,
+<em>AI in charge</em>, is a governance and market-structure case: concentration in a supply chain
+that "favors a few companies and countries", the black-box problem compounded by the pacing
+problem, and the observation that "the precautionary principle has largely not been applied in
+the development of AI, as regulators erred on the side of innovation."</p>
+
+<p>The 2026 chapter, <em>AI at large</em>, is a social-consequence case. Its three headline
+claims:</p>
+
+<blockquote>
+  <p>In a worst-case scenario for labour markets, increases in both productivity and unemployment
+  could drive permanently K-shaped economies.</p>
+  <p>The potential for creativity, learning and leisure could give way to loss of purpose,
+  meaning and contribution to society, coupled with erosion of alignment around objective
+  facts.</p>
+  <p>The rising range of military use cases for AI will come with commensurate risks, in the
+  worst case leading to rapid and perhaps unintentional escalation of conflicts.</p>
+  <cite>Global Risks Report 2026, Section 2.7 — <em>AI at large</em></cite>
+</blockquote>
+
+<p>The report explains its own change of emphasis: AI "has shifted from a frontier technology to
+a <strong>systemic force</strong> shaping economies, societies and security," with the global
+market projected from roughly $280 billion in 2024 to $3.5 trillion by 2033.</p>
+
+<h3>Jobless productivity</h3>
+<p>A benign estimate — 170 million roles created against 92 million displaced, a net gain of 78
+million by 2030 — is set against a severe one: up to half of US entry-level white-collar jobs
+eliminated within five years, unemployment at 10–20%. The chapter coins the image of a
+<strong>"white-collar rust belt"</strong> in cities that are today knowledge and services hubs,
+"generating a powerful, angry, political force." The transmission mechanism is named:
+<em>Inequality</em> is the most interconnected risk in the survey for the second year running —
+"labour displacement feeds inequality, which drives societal polarization."</p>
+
+<h3>Purpose in drift</h3>
+<p>New material with no precedent in earlier editions: a risk-register entry about meaning. Loss
+of occupational identity, a possible "lost generation" subsisting on basic income, dependency on
+AI as a "second brain", AI companions increasing loneliness, and the erosion of critical thinking
+in education systems — alongside second-order physical effects, from generative models consuming
+"up to 4,600 times more energy than traditional software" to water stress around data-centre
+build-outs.</p>
+
+<h3>Military misuse or mistakes</h3>
+<p>The most concrete escalation scenario in the corpus. As militaries embed AI in "intelligence,
+surveillance, logistics, and command functions," the risk shifts "from tactical to systemic."
+Crises "that once unfolded over days or hours could instead escalate in seconds," producing
+"a conflict started by technical error rather than strategic intent" — with countries already
+"starting to implement AI tools for managing nuclear weapons stockpiles and in some areas of
+nuclear weapons command, control, and communications."</p>
+
+<blockquote>
+  <p>Major powers are rushing to integrate AI across military domains, each fearing strategic
+  disadvantage if rivals move first. This dynamic incentivizes rapid deployment over rigorous
+  safety testing, increasing the probability of failures precisely where consequences are most
+  severe … Each country's pursuit of security may, collectively, produce a more dangerous
+  world.</p>
+  <cite>Global Risks Report 2026, Section 2.7</cite>
+</blockquote>
+
+<h2><span class="num">06</span>Ten findings</h2>
+
+<ol>
+  <li>The technological category was <strong>remade, not extended</strong>, between 2022 and
+  2024 — four of six risks replaced, and the vocabulary moved from infrastructure and access to
+  content, control and cognition.</li>
+  <li><strong>2022 is the trough and the tell</strong>: no technological risk in the ten-year top
+  10, and the WEF flags "a possible blind spot" two years before AI enters at #6.</li>
+  <li><strong>2024 is the break</strong>: misinformation at #1 over two years, AI entering at #6
+  over ten, and AI-generated misinformation the #2 current crisis at 53%.</li>
+  <li>The post-2024 series is <strong>stable in volume, unstable in composition</strong> — two
+  technological risks in the two-year top 10 and three in the ten-year top 10, every year.</li>
+  <li><strong>AI's signature is the horizon gap</strong>, the largest in the 2026 survey: #30
+  versus #5, severity 3.50 versus 5.28.</li>
+  <li><strong>2026 is the first year AI is a present-tense concern</strong> — a new entrant at #8
+  in the current-risk landscape, and a top-five national risk in twenty economies.</li>
+  <li>The AI argument itself changed from <strong>governance and market structure</strong> (2024)
+  to <strong>social consequence</strong> (2026).</li>
+  <li><strong>Information integrity is the through-line</strong> — the only technology theme in
+  the two-year top 10 in every edition since 2024, and the route by which AI risk is expected to
+  reach societies first.</li>
+  <li><strong>Frontier technology other than AI has not moved at all</strong> — last or near-last
+  among technological risks in both horizons for four consecutive editions, including in years it
+  received dedicated chapters. The panel's long-horizon concern is specific to AI.</li>
+  <li><strong>Three instruments inside the 2026 report disagree about AI's urgency</strong>, and
+  the two closest to operating businesses are the more alarmed. That disagreement is more
+  informative than any single rank.</li>
+</ol>
+
+<div class="legend">
+  <span><span class="sw" style="background:var(--ai)"></span> AI risk</span>
+  <span><span class="sw" style="background:var(--accent)"></span> Two-year horizon</span>
+  <span><span class="sw" style="background:var(--tech)"></span> Top-10 placement</span>
+</div>
+
+<footer>
+  <p><strong>Method.</strong> Ranks are the WEF's own published ranks, read from the annual
+  summary sections (Preface, Key Findings, Global Risks Landscape figures) of the seven reports.
+  Severity scores are quoted only where the reports state them. Extraction covers every risk the
+  WEF files under the Technological category, in each year's wording, plus information-integrity
+  risks wherever they were classified.</p>
+  <p><strong>Limits.</strong> The GRPS is an opinion survey of a self-selected expert network, not
+  a measurement. It publishes no probabilities. Rank is zero-sum — a risk can fall in rank without
+  easing. And a risk that is not on the list cannot be ranked: digital inequality has been absent
+  since 2023, not resolved.</p>
+  <p>Full report and dataset: <span style="font-family:var(--mono)">
+  WEF-GRR-2020-2026-Technology-Information-AI-Risks-Comparative-Analysis.md</span> and
+  <span style="font-family:var(--mono)">WEF-GRR-2020-2026-tech-info-AI-risk-rankings.xlsx</span>.
+  The full report is published as the companion article,
+  <a href="4f2a.html">KB-RISK/4f2a.html</a>.</p>
+  <p>Quotations are reproduced for analysis and comment. <em>The Global Risks Report</em> is
+  © World Economic Forum; all rights in those reports are reserved to the Forum.
+  Analysis compiled 7 September 2026.</p>
+
+  <p>This synthesis text is © CD Consulting R&amp;D and licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener noreferrer" target="_blank">CC BY-NC-ND 4.0</a>
+  (attribution, non-commercial, no derivatives).</p>
+
+  <h2>Sources online</h2>
+  <ol class="srclist">
+    <li><a href="https://www.weforum.org/publications/" rel="noopener noreferrer"
+        target="_blank">https://www.weforum.org/publications/</a><br>
+      World Economic Forum — publications index.</li>
+    <li><a href="https://www.weforum.org/publications/global-risks-report-2026/"
+        rel="noopener noreferrer" target="_blank">https://www.weforum.org/publications/global-risks-report-2026/</a><br>
+      Global Risks Report 2026 — publication page.</li>
+    <li><a href="https://intelligence.weforum.org/" rel="noopener noreferrer"
+        target="_blank">https://intelligence.weforum.org/</a><br>
+      World Economic Forum Strategic Intelligence — the Forum's interactive
+      platform for exploring the global risks landscape and the links between risks.</li>
+  </ol>
+
+  <p class="backlinks"><a href="4f2a.html">← Full report</a> · <a href="./">KB-RISK</a> · <a href="../index.html">CD Consulting R&amp;D</a></p>
+</footer>
+
+</div>
+</body>
+</html>
