@@ -23,7 +23,7 @@ Ce depot porte trois choses, et rien d'autre :
 | Chemin | Etat |
 |---|---|
 | `/knowledgebase` (topics : Computer Science and AI ; Finance Economics Law & Risk Datamart ; Philosophy) | annonce, non commence |
-| `/KB-RISK` | en ligne — base de connaissance risque, une entree (BKL-CDC-003) |
+| `/KB-RISK` | en ligne — base de connaissance risque, deux entrees (BKL-CDC-003, BKL-CDC-004) |
 | `/KB-FIN` | annonce, non commence |
 | `/KB-PHI` | annonce, non commence |
 | `/KB-AI` | annonce, non commence |
