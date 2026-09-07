@@ -6,190 +6,153 @@
   <title>Technology, Information and AI Risks in the WEF Global Risks Reports, 2020–2026 — CD Consulting R&amp;D</title>
   <meta name="description" content="A seven-edition comparative analysis of the annual summary sections of the WEF Global Risks Reports, 2020-2026, focused on technology, information and AI risks.">
   <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      display: flex;
-      justify-content: center;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f7f6f3;
-      color: #1a1a1a;
-      padding: 3rem 1.4rem 4rem;
-      line-height: 1.62;
-    }
-    main { max-width: 40rem; width: 100%; }
+/* Nocturnal edition. The page commits to a dark palette in every context:
+   no light variant, no prefers-color-scheme switch. Tuned for long reading —
+   the ground is a blue-black rather than pure black, and the text a warm
+   off-white rather than #fff, so the contrast reads deep instead of harsh. */
+:root{
+  color-scheme:dark;
+  --bg:#0d1015;          /* page ground, blue-black */
+  --panel:#161b23;       /* tables, contents box, source list */
+  --panel-2:#1a2029;     /* table header band */
+  --quote:#141920;       /* pull quotes */
+  --code:#1b212b;
+  --ink:#dde3ea;         /* body text, warm off-white */
+  --ink-strong:#f2f5f8;  /* headings and <strong> */
+  --muted:#8c96a4;       /* captions, notes */
+  --rule:#242c37;        /* hairlines */
+  --rule-soft:#1c232c;
+  --accent:#82aef0;      /* links, section rules */
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 104px}
+::selection{background:#2b3d57;color:#f2f5f8}
 
-    .mark {
-      font-size: 0.78rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: #3d6478;
-      margin-bottom: 1.4rem;
-      text-align: center;
-    }
-    nav.crumbs {
-      font-family: system-ui, sans-serif;
-      font-size: 0.78rem;
-      text-align: center;
-      color: #8a8578;
-      margin-bottom: 1.6rem;
-    }
-    nav.crumbs a { color: #3d6478; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
-    nav.crumbs a:hover { border-bottom-color: #3d6478; }
+h1{font-family:var(--serif);font-size:clamp(27px,4.4vw,42px);line-height:1.15;
+  font-weight:600;letter-spacing:-.015em;margin:0 0 18px;color:var(--ink-strong);
+  padding-bottom:22px;border-bottom:2px solid var(--accent)}
+h2{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.01em;
+  color:var(--ink-strong);margin:60px 0 14px;padding-top:26px;
+  border-top:1px solid var(--rule);scroll-margin-top:16px}
+h2#contents{border-top:none;padding-top:0;margin-top:42px}
+h3{font-size:18px;font-weight:600;margin:38px 0 10px;letter-spacing:-.005em;
+  font-family:var(--serif);color:var(--ink-strong);scroll-margin-top:16px}
+p{margin:0 0 17px;max-width:72ch}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:#a6c8f7;text-decoration-thickness:2px}
+strong{font-weight:650;color:var(--ink-strong)}
+em{font-style:italic}
+hr{border:none;border-top:1px solid var(--rule-soft);margin:46px 0}
+ul,ol{max-width:72ch;padding-left:24px;margin:0 0 19px}
+li{margin-bottom:10px}
+li>p{margin-bottom:10px}
+li::marker{color:var(--muted)}
 
-    .cartouche {
-      font-family: system-ui, sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #8a8578;
-      text-align: center;
-      margin-bottom: 2.2rem;
-      padding-bottom: 1.6rem;
-      border-bottom: 1px solid #ddd8cf;
-    }
+/* Table of contents */
+h2#contents + ol{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
+  padding:22px 22px 22px 46px;max-width:none;font-size:15px}
+h2#contents + ol li{margin-bottom:8px}
+h2#contents + ol li::marker{color:var(--accent)}
 
-    h1 {
-      font-size: clamp(1.7rem, 5vw, 2.5rem);
-      font-weight: 400;
-      line-height: 1.2;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .standfirst {
-      font-size: 1rem;
-      color: #555;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    .meta-line {
-      font-family: system-ui, sans-serif;
-      font-size: 0.82rem;
-      color: #8a8578;
-      text-align: center;
-      margin-bottom: 2.4rem;
-    }
+blockquote{margin:26px 0;padding:18px 24px;border-left:3px solid var(--accent);
+  background:var(--quote);border-radius:0 9px 9px 0;font-family:var(--serif);
+  font-size:16.5px;line-height:1.58;color:var(--ink-strong)}
+blockquote p{margin:0 0 12px;max-width:66ch}
+blockquote p:last-child{margin:0}
+blockquote ul,blockquote ol{margin:0}
+blockquote li{color:var(--ink-strong)}
 
-    h2 {
-      font-size: 1.05rem;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      color: #3d6478;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #ddd8cf;
-      margin: 3rem 0 1.2rem;
-    }
-    h2#contents { margin-top: 0; }
-    h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 2rem 0 0.8rem;
-    }
+code{font-family:var(--mono);font-size:.87em;background:var(--code);
+  color:#c9d6e6;padding:2px 6px;border-radius:4px;word-break:break-word;
+  border:1px solid var(--rule-soft)}
+pre{background:var(--code);border:1px solid var(--rule);border-radius:9px;
+  padding:15px 17px;overflow-x:auto;font-size:13px;line-height:1.55}
+pre code{background:none;padding:0;border:none}
 
-    p { margin-bottom: 1.1rem; }
-    ul, ol { padding-left: 1.4rem; margin: 0 0 1.1rem; }
-    li { margin-bottom: 0.55rem; }
-    li:last-child { margin-bottom: 0; }
+.scroll{overflow-x:auto;margin:26px 0 30px;border:1px solid var(--rule);
+  border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);
+  vertical-align:top;line-height:1.55}
+thead th{background:var(--panel-2);color:var(--ink-strong);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;font-weight:650;white-space:nowrap;
+  border-bottom:1px solid var(--rule)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#1a212a}
+td code{white-space:nowrap}
+td em{color:var(--muted)}
 
-    /* Contents box */
-    h2#contents + ol {
-      background: #ffffffa8;
-      border: 1px solid #ddd8cf;
-      border-radius: 6px;
-      padding: 1.1rem 1.1rem 1.1rem 2.2rem;
-      font-size: 0.92rem;
-    }
-    h2#contents + ol li { margin-bottom: 0.45rem; }
-    h2#contents + ol li:last-child { margin-bottom: 0; }
-    h2#contents + ol a { color: #1a1a1a; }
-    h2#contents + ol a:hover { color: #3d6478; }
+ol.srclist{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
+  padding:22px 24px 22px 48px;max-width:none}
+ol.srclist li{margin-bottom:15px;line-height:1.55}
+ol.srclist li:last-child{margin-bottom:0}
+ol.srclist li::marker{color:var(--accent)}
+ol.srclist a{font-family:var(--mono);font-size:13.5px;word-break:break-all}
+ol.srclist .s{font-size:13.5px;color:var(--muted)}
+p.srcnote{font-size:13.5px;color:var(--muted);margin-top:15px}
 
-    a { color: #3d6478; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
-    a:hover { border-bottom-color: #3d6478; }
+/* Dark scrollbars, so the chrome does not glare against the page */
+*{scrollbar-color:#39424f var(--bg)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#39424f;border-radius:6px;
+  border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:#4a5563}
 
-    strong { font-weight: 700; }
-    em { font-style: italic; }
-    hr { border: none; border-top: 1px solid #ddd8cf; margin: 2.4rem 0; }
+@media (max-width:640px){
+  .wrap{padding:34px 16px 68px}
+  body{font-size:16px}
+  h2#contents + ol,ol.srclist{padding-left:38px}
+}
+/* Paper is not a screen: print goes back to ink on white. */
+@media print{
+  html,body{background:#fff;color:#000;font-size:11pt}
+  .wrap{max-width:none;padding:0}
+  h1,h2,h3,strong,blockquote{color:#000}
+  h1{border-bottom-color:#000}
+  h2{border-top-color:#999;page-break-after:avoid}
+  a{color:#000}
+  code,pre,blockquote,.scroll,h2#contents + ol,ol.srclist{background:#fff;
+    border-color:#bbb;color:#000}
+  thead th{background:#eee;color:#000}
+  .scroll{page-break-inside:avoid;overflow:visible}
+  table{min-width:0;font-size:9pt}
+  td,th{border-bottom-color:#ccc}
+  .muted,p.srcnote,ol.srclist .s{color:#444}
+}
 
-    blockquote {
-      margin: 1.6rem 0;
-      padding: 1rem 1.3rem;
-      border-left: 3px solid #3d6478;
-      background: #ffffffa8;
-      border-radius: 0 6px 6px 0;
-      font-style: italic;
-    }
-    blockquote p { margin-bottom: 0.6rem; }
-    blockquote p:last-child { margin-bottom: 0; }
-    blockquote ul, blockquote ol { margin-bottom: 0; }
-    blockquote li { margin-bottom: 0.5rem; }
-
-    code {
-      font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
-      font-size: 0.88rem;
-      color: #1a1a1a;
-      background: #ecebe6;
-      padding: 0.1rem 0.38rem;
-      border-radius: 2px;
-      word-break: break-word;
-    }
-
-    .scroll { overflow-x: auto; margin: 1.4rem 0; border: 1px solid #ddd8cf; border-radius: 6px; }
-    table { border-collapse: collapse; width: 100%; min-width: 30rem; font-size: 0.86rem; }
-    th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid #ddd8cf; vertical-align: top; }
-    thead th {
-      background: #ecebe6;
-      font-family: system-ui, sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    tbody tr:last-child td { border-bottom: none; }
-
-    footer {
-      margin-top: 3.2rem;
-      padding-top: 1.6rem;
-      border-top: 1px solid #ddd8cf;
-      font-family: system-ui, sans-serif;
-      font-size: 0.76rem;
-      color: #8a8578;
-      line-height: 1.6;
-    }
-    footer p { margin-bottom: 0.9rem; }
-    footer p:last-child { margin-bottom: 0; }
-    footer h2 {
-      font-size: 0.72rem;
-      color: #8a8578;
-      border: none;
-      padding: 0;
-      margin: 1.6rem 0 0.6rem;
-    }
-    footer ol.srclist { padding-left: 1.3rem; }
-    footer ol.srclist li { margin-bottom: 0.5rem; word-break: break-all; }
-    footer .backlinks { text-align: center; margin-top: 2rem; font-size: 0.82rem; }
-
-    @media (prefers-color-scheme: dark) {
-      body { background: #12151a; color: #eceef1; }
-      .standfirst, footer { color: #a8adb6; }
-      .mark, h2, a, footer h2 { color: #8fb3c4; }
-      nav.crumbs, .cartouche, .meta-line { color: #767c86; }
-      nav.crumbs a { color: #8fb3c4; }
-      h2, hr, .scroll, th, td, h2#contents + ol { border-color: #2a3038; }
-      .cartouche { border-color: #2a3038; }
-      code { background: #1d222a; color: #eceef1; }
-      blockquote { background: #1a1f27; }
-      h2#contents + ol { background: #171b21; }
-      h2#contents + ol a { color: #eceef1; }
-      h2#contents + ol a:hover { color: #8fb3c4; }
-      thead th { background: #1d222a; }
-      a { border-bottom-color: #3a4a56; }
-      a:hover { border-bottom-color: #8fb3c4; }
-    }
+/* CD Consulting R&D wrapper: nav, cartouche, footer — aligned to the palette above */
+.mark{font-family:var(--sans);font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:22px;text-align:center}
+nav.crumbs{font-family:var(--sans);font-size:12.5px;text-align:center;color:var(--muted);
+  margin-bottom:26px}
+nav.crumbs a{color:var(--accent)}
+.cartouche{font-family:var(--sans);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-align:center;margin-bottom:34px;padding-bottom:24px;
+  border-bottom:1px solid var(--rule-soft)}
+h1{text-align:center}
+.standfirst{font-family:var(--serif);font-size:16px;color:var(--muted);text-align:center;
+  margin:0 0 8px;max-width:none}
+.meta-line{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;
+  margin-bottom:38px;max-width:none}
+footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.6}
+footer p{margin-bottom:14px;max-width:none}
+footer p:last-child{margin-bottom:0}
+footer h2{font-family:var(--sans);font-size:12px;font-weight:650;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);border:none;padding:0;margin:30px 0 12px}
+footer .backlinks{text-align:center;margin-top:34px;font-size:14px}
   </style>
 </head>
 <body>
-  <main>
+  <main class="wrap">
     <p class="mark">CD Consulting R&amp;D</p>
     <nav class="crumbs"><a href="../index.html">Home</a> · <a href="./">KB-RISK</a> · Entry 1</nav>
     <p class="cartouche">CD Consulting R&amp;D · KB-RISK · entry 1 · compiled 2026-09-07 from the seven public WEF Global Risks Reports · published 7 September 2026</p>
@@ -1086,7 +1049,7 @@ rank.</li>
 <tbody>
 <tr>
 <td>2020</td>
-<td><code>WEF_Global_Risk_Report_2020.pdf</code></td>
+<td><code>GRR 2020</code></td>
 <td>2019–2020</td>
 <td>30</td>
 <td>Likelihood + impact, 10 yrs</td>
@@ -1095,7 +1058,7 @@ Fragmentation</em></td>
 </tr>
 <tr>
 <td>2021</td>
-<td><code>WEF_The_Global_Risks_Report_2021.pdf</code></td>
+<td><code>GRR 2021</code></td>
 <td>2020</td>
 <td>35</td>
 <td>Likelihood + impact; Global Risks Horizon</td>
@@ -1103,7 +1066,7 @@ Fragmentation</em></td>
 </tr>
 <tr>
 <td>2022</td>
-<td><code>WEF_The_Global_Risks_Report_2022.pdf</code></td>
+<td><code>GRR 2022</code></td>
 <td>2021–2022</td>
 <td>37</td>
 <td>Horizon; most severe over 10 yrs</td>
@@ -1111,7 +1074,7 @@ Fragmentation</em></td>
 </tr>
 <tr>
 <td>2023</td>
-<td><code>WEF_Global_Risks_Report_2023.pdf</code></td>
+<td><code>GRR 2023</code></td>
 <td>2022–2023</td>
 <td>32</td>
 <td>Severity, 2 yrs and 10 yrs</td>
@@ -1119,7 +1082,7 @@ Fragmentation</em></td>
 </tr>
 <tr>
 <td>2024</td>
-<td><code>WEF_The_Global_Risks_Report_2024.pdf</code></td>
+<td><code>GRR 2024</code></td>
 <td>2023–2024</td>
 <td>34</td>
 <td>Severity, 2 yrs and 10 yrs</td>
@@ -1128,7 +1091,7 @@ charge</em></td>
 </tr>
 <tr>
 <td>2025</td>
-<td><code>WEF_Global_Risks_Report_2025.pdf</code></td>
+<td><code>GRR 2025</code></td>
 <td>2024–2025</td>
 <td>33</td>
 <td>Severity, 2 yrs and 10 yrs</td>
@@ -1137,7 +1100,7 @@ control of biotech?</em></td>
 </tr>
 <tr>
 <td>2026</td>
-<td><code>WEF_Global_Risks_Report_2026.pdf</code></td>
+<td><code>GRR 2026</code></td>
 <td>2025–2026</td>
 <td>33</td>
 <td>Severity, 2 yrs and 10 yrs</td>
