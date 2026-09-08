@@ -3,7 +3,7 @@
 Depot racine du domaine **www.cd-consulting-rd.be**, servi par GitHub Pages
 sous l'organisation [CD-Consulting-R-D](https://github.com/CD-Consulting-R-D).
 
-**Statut : en construction** (un projet publie a ce jour : `/KB-RISK`).
+**Statut : en construction** (un chapitre publie a ce jour : `/KB-RISK`, servi depuis son propre depot depuis le 08/09/2026).
 
 ## Role
 
@@ -23,22 +23,23 @@ Ce depot porte trois choses, et rien d'autre :
 | Chemin | Etat |
 |---|---|
 | `/knowledgebase` (topics : Computer Science and AI ; Finance Economics Law & Risk Datamart ; Philosophy) | annonce, non commence |
-| `/KB-RISK` | en ligne — base de connaissance risque, deux entrees (BKL-CDC-003, BKL-CDC-004) |
-| `/KB-FIN` | annonce, non commence |
-| `/KB-PHI` | annonce, non commence |
-| `/KB-AI` | annonce, non commence |
+| `/KB-RISK` | en ligne — base de connaissance risque, deux entrees (BKL-CDC-003, BKL-CDC-004) ; depuis le 08/09/2026 servie par le depot [`KB-RISK`](https://github.com/CD-Consulting-R-D/KB-RISK) (site de projet GitHub Pages sous le domaine), plus par un dossier de ce depot |
+| `/KB-FIN` | depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) cree le 08/09/2026, Pages non active, aucune entree |
+| `/KB-PHI` | depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) cree le 08/09/2026, Pages non active, aucune entree |
+| `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) cree le 08/09/2026, Pages non active, aucune entree |
 | `/chatbot-knowledgebase` | annonce, non commence |
 
-`/KB-RISK` existe et sert une premiere entree (BKL-CDC-003) ; les cinq autres
-chemins n'existent pas encore. Ils sont **nommes** par la page d'accueil, pas
-servis : chacun fera l'objet de son propre mandat et, le cas echeant, de son
-propre depot.
+Chaque chapitre `KB-*` vit dans son propre depot de l'organisation et est servi comme
+site de projet GitHub Pages sous le domaine (`https://www.cd-consulting-rd.be/<KB>/`) :
+ce depot racine ne porte plus aucun contenu de connaissance, seulement l'accueil qui
+pointe vers les chapitres. `/knowledgebase` et `/chatbot-knowledgebase` restent annonces,
+non commences.
 
 ## Hors perimetre — nommement
 
-- **Tout contenu de connaissance au-dela de KB-RISK.** Les bases KB-FIN,
-  KB-PHI, KB-AI et le chatbot ne sont pas commences ; ce depot ne porte que le
-  contenu audite et publie de `/KB-RISK`, aucune autre donnee brute.
+- **Tout contenu de connaissance.** Les entrees vivent dans les depots de chapitre
+  (`KB-RISK` en ligne ; `KB-FIN`, `KB-PHI`, `KB-AI` crees, vides) ; ce depot ne porte
+  que l'accueil, aucune donnee brute.
 - **Toute fonction serveur.** Site statique pur : pas de Netlify, pas de
   Supabase, pas de build, pas de dependance, pas de `node_modules`.
 - **Tout secret.** Ce depot n'en manipule aucun et n'a aucune variable de
