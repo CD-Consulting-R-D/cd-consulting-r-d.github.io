@@ -79,13 +79,15 @@
     .latest li { margin-bottom: 0.7rem; text-align: center; }
     .latest li:last-child { margin-bottom: 0; }
     .latest li a { font-size: 0.98rem; }
-    .latest .latest-date {
+    .latest .hook {
       display: block;
       font-family: system-ui, sans-serif;
-      font-size: 0.72rem;
-      color: #8a8578;
-      margin-top: 0.3rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: #6f6a5e;
+      margin-top: 0.25rem;
     }
+    .latest .hook.empty { text-align: center; margin: 0; }
 
     section { margin-bottom: 2.6rem; }
     h2 {
@@ -170,7 +172,7 @@
       .lead, .note, .topics li { color: #a8adb6; }
       .mark, h2, .banner, .latest, .latest .label, a { color: #8fb3c4; }
       .banner, .latest { border-color: #8fb3c4; }
-      .latest .latest-date { color: #767c86; }
+      .latest .hook { color: #9aa0aa; }
       h2, footer, .topics { border-color: #2a3038; }
       code { background: #1d222a; color: #eceef1; }
       .soon, dt, footer { color: #767c86; }
@@ -185,19 +187,19 @@
     <h1>Knowledge Base</h1>
     <p class="lead">Independent analyses of technology, AI and risk, compiled from public sources.</p>
     <div class="latest">
-      <span class="label">Latest · KB-RISK</span>
+      <span class="label">Latest</span>
       <ul>
         <li>
-          <a href="KB-RISK/e6a4.html">Keeping secrets and code on GitHub: lessons from 2022–2026</a>
-          <span class="latest-date">8 September 2026</span>
+          <a href="KB-RISK/e6a4.html" title="Keeping secrets and code on GitHub: lessons from 2022–2026">Keeping secrets and code on…</a>
+          <span class="hook">A private repository is not a vault: six incident families and six rules for a small organisation.</span>
         </li>
         <li>
-          <a href="KB-RISK/7b3d.html">AI agents and the erosion of human oversight — a reading note</a>
-          <span class="latest-date">7 September 2026</span>
+          <a href="KB-RISK/7b3d.html" title="AI agents and the erosion of human oversight — a reading note">AI agents and the erosion of…</a>
+          <span class="hook">Autonomous agents erode the very skills that human oversight depends on — a critical reading.</span>
         </li>
         <li>
-          <a href="KB-RISK/4f2a.html">WEF Global Risks Reports 2020–2026: the rise of AI risk</a>
-          <span class="latest-date">7 September 2026</span>
+          <a href="KB-RISK/4f2a.html" title="WEF Global Risks Reports 2020–2026: the rise of AI risk">WEF Global Risks Reports…</a>
+          <span class="hook">2024 is the break: misinformation takes #1 and AI enters the top ten of the WEF reports.</span>
         </li>
       </ul>
     </div>
