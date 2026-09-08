@@ -3,7 +3,7 @@
 Depot racine du domaine **www.cd-consulting-rd.be**, servi par GitHub Pages
 sous l'organisation [CD-Consulting-R-D](https://github.com/CD-Consulting-R-D).
 
-**Statut : en construction** (un chapitre publie a ce jour : `/KB-RISK`, servi depuis son propre depot depuis le 08/09/2026).
+**Statut : en construction** (deux chapitres publies a ce jour : `/KB-RISK` et `/KB-FIN`, chacun servi depuis son propre depot depuis le 08/09/2026).
 
 ## Role
 
@@ -23,8 +23,8 @@ Ce depot porte trois choses, et rien d'autre :
 | Chemin | Etat |
 |---|---|
 | `/knowledgebase` (topics : Computer Science and AI ; Finance Economics Law & Risk Datamart ; Philosophy) | annonce, non commence |
-| `/KB-RISK` | en ligne — base de connaissance risque, deux entrees (BKL-CDC-003, BKL-CDC-004) ; depuis le 08/09/2026 servie par le depot [`KB-RISK`](https://github.com/CD-Consulting-R-D/KB-RISK) (site de projet GitHub Pages sous le domaine), plus par un dossier de ce depot |
-| `/KB-FIN` | depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) cree le 08/09/2026, Pages non active, aucune entree |
+| `/KB-RISK` | en ligne — base de connaissance risque, trois entrees ; depuis le 08/09/2026 servie par le depot [`KB-RISK`](https://github.com/CD-Consulting-R-D/KB-RISK) (site de projet GitHub Pages sous le domaine), plus par un dossier de ce depot |
+| `/KB-FIN` | en ligne depuis le 08/09/2026 — finance, economie, droit et datamart risque, une entree ; servie par le depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) (site de projet GitHub Pages sous le domaine) |
 | `/KB-PHI` | depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) cree le 08/09/2026, Pages non active, aucune entree |
 | `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) cree le 08/09/2026, Pages non active, aucune entree |
 | `/chatbot-knowledgebase` | annonce, non commence |
@@ -38,7 +38,7 @@ non commences.
 ## Hors perimetre — nommement
 
 - **Tout contenu de connaissance.** Les entrees vivent dans les depots de chapitre
-  (`KB-RISK` en ligne ; `KB-FIN`, `KB-PHI`, `KB-AI` crees, vides) ; ce depot ne porte
+  (`KB-RISK` et `KB-FIN` en ligne ; `KB-PHI`, `KB-AI` crees, vides) ; ce depot ne porte
   que l'accueil, aucune donnee brute.
 - **Toute fonction serveur.** Site statique pur : pas de Netlify, pas de
   Supabase, pas de build, pas de dependance, pas de `node_modules`.
