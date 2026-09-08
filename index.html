@@ -76,18 +76,17 @@
       text-align: center;
     }
     .latest ul { list-style: none; }
-    .latest li { margin-bottom: 0.7rem; text-align: center; }
-    .latest li:last-child { margin-bottom: 0; }
-    .latest li a { font-size: 0.98rem; }
-    .latest .hook {
-      display: block;
-      font-family: system-ui, sans-serif;
-      font-size: 0.78rem;
-      line-height: 1.45;
-      color: #6f6a5e;
-      margin-top: 0.25rem;
-    }
-    .latest .hook.empty { text-align: center; margin: 0; }
+    .latest li { text-align: left; padding: 0.55rem 0; border-top: 1px solid #ddd8cf; }
+    .latest li:first-child { border-top: none; padding-top: 0; }
+    .latest li:last-child { padding-bottom: 0; }
+    .latest .row { display: flex; gap: 0.5rem; align-items: center; font-family: system-ui, sans-serif; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8578; margin-bottom: 0.2rem; }
+    .latest .chip { border: 1px solid #b9c8d0; border-radius: 99px; padding: 0.05rem 0.5rem; color: #3d6478; }
+    .latest .badge { background: #8c2f22; color: #fff; border-radius: 99px; padding: 0.05rem 0.5rem; letter-spacing: 0.14em; }
+    .latest a.t { font-size: 0.98rem; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
+    .latest a.t:hover { border-bottom-color: #3d6478; }
+    .latest .stake { display: block; font-family: system-ui, sans-serif; font-size: 0.8rem; line-height: 1.45; color: #444; margin-top: 0.2rem; }
+    .latest .stake strong { color: #1a1a1a; font-weight: 600; }
+    .latest .empty { text-align: center; font-family: system-ui, sans-serif; font-size: 0.8rem; color: #6f6a5e; margin: 0; }
 
     section { margin-bottom: 2.6rem; }
     h2 {
@@ -172,7 +171,11 @@
       .lead, .note, .topics li { color: #a8adb6; }
       .mark, h2, .banner, .latest, .latest .label, a { color: #8fb3c4; }
       .banner, .latest { border-color: #8fb3c4; }
-      .latest .hook { color: #9aa0aa; }
+      .latest li { border-top-color: #2a3340; }
+      .latest .row { color: #767c86; }
+      .latest .chip { border-color: #3f5866; color: #8fb3c4; }
+      .latest .stake { color: #b8bec8; }
+      .latest .stake strong { color: #dde3ea; }
       h2, footer, .topics { border-color: #2a3038; }
       code { background: #1d222a; color: #eceef1; }
       .soon, dt, footer { color: #767c86; }
@@ -190,20 +193,24 @@
       <span class="label">Latest</span>
       <ul>
         <li>
-          <a href="KB-FIN/b7c3.html" title="Real options, twenty-five years on: Luehrman and the field in 2026">Real options, twenty-five…</a>
-          <span class="hook">Two metrics and a picture managers can draw; adoption stuck near a quarter of CFOs; the energy transition as new laboratory.</span>
+          <div class="row"><span class="chip">KB-FIN</span><span class="badge">New</span><span>15 min</span></div>
+          <a class="t" href="KB-FIN/b7c3.html">Real options, twenty-five years on</a>
+          <span class="stake"><strong>If you ever had to defend a project with a zero NPV</strong>, this is the method that values what DCF ignores.</span>
         </li>
         <li>
-          <a href="KB-RISK/e6a4.html" title="Keeping secrets and code on GitHub: lessons from 2022–2026">Keeping secrets and code on…</a>
-          <span class="hook">A private repository is not a vault: six incident families and six rules for a small organisation.</span>
+          <div class="row"><span class="chip">KB-RISK</span><span class="badge">New</span><span>15 min</span></div>
+          <a class="t" href="KB-RISK/e6a4.html">Keeping secrets and code on GitHub</a>
+          <span class="stake"><strong>If you keep API keys in a private repository</strong>, read this before the next backup runs.</span>
         </li>
         <li>
-          <a href="KB-RISK/7b3d.html" title="AI agents and the erosion of human oversight — a reading note">AI agents and the erosion of…</a>
-          <span class="hook">Autonomous agents erode the very skills that human oversight depends on — a critical reading.</span>
+          <div class="row"><span class="chip">KB-RISK</span><span class="badge">New</span><span>4 min</span></div>
+          <a class="t" href="KB-RISK/7b3d.html">AI agents and the erosion of human oversight</a>
+          <span class="stake"><strong>If “a human will check” is your safeguard</strong>, the authors explain why it wears out.</span>
         </li>
         <li>
-          <a href="KB-RISK/4f2a.html" title="WEF Global Risks Reports 2020–2026: the rise of AI risk">WEF Global Risks Reports…</a>
-          <span class="hook">2024 is the break: misinformation takes #1 and AI enters the top ten of the WEF reports.</span>
+          <div class="row"><span class="chip">KB-RISK</span><span class="badge">New</span><span>27 min</span></div>
+          <a class="t" href="KB-RISK/4f2a.html">WEF Global Risks Reports 2020–2026</a>
+          <span class="stake"><strong>If you brief a board on risk</strong>, this is where AI entered the list, and how fast.</span>
         </li>
       </ul>
     </div>
