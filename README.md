@@ -26,7 +26,7 @@ Ce depot porte trois choses, et rien d'autre :
 | `/KB-RISK` | en ligne — base de connaissance risque, trois entrees ; depuis le 08/09/2026 servie par le depot [`KB-RISK`](https://github.com/CD-Consulting-R-D/KB-RISK) (site de projet GitHub Pages sous le domaine), plus par un dossier de ce depot |
 | `/KB-FIN` | en ligne depuis le 08/09/2026 — finance, economie, droit et datamart risque, une entree ; servie par le depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) (site de projet GitHub Pages sous le domaine) |
 | `/KB-PHI` | depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) cree le 08/09/2026, Pages non active, aucune entree |
-| `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) cree le 08/09/2026, Pages non active, aucune entree |
+| `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) en ligne depuis le 09/09/2026, 1 entree (resume 2026 AI Barometer BE) |
 | `/chatbot-knowledgebase` | annonce, non commence |
 
 Chaque chapitre `KB-*` vit dans son propre depot de l'organisation et est servi comme
@@ -38,7 +38,7 @@ non commences.
 ## Hors perimetre — nommement
 
 - **Tout contenu de connaissance.** Les entrees vivent dans les depots de chapitre
-  (`KB-RISK` et `KB-FIN` en ligne ; `KB-PHI`, `KB-AI` crees, vides) ; ce depot ne porte
+  (`KB-RISK`, `KB-FIN` et `KB-AI` en ligne ; `KB-PHI` cree, vide) ; ce depot ne porte
   que l'accueil, aucune donnee brute.
 - **Toute fonction serveur.** Site statique pur : pas de Netlify, pas de
   Supabase, pas de build, pas de dependance, pas de `node_modules`.
