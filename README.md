@@ -25,9 +25,9 @@ Ce depot porte trois choses, et rien d'autre :
 | `/knowledgebase` (topics : Computer Science and AI ; Finance Economics Law & Risk Datamart ; Philosophy) | annonce, non commence |
 | `/KB-RISK` | en ligne — base de connaissance risque, trois entrees ; depuis le 08/09/2026 servie par le depot [`KB-RISK`](https://github.com/CD-Consulting-R-D/KB-RISK) (site de projet GitHub Pages sous le domaine), plus par un dossier de ce depot |
 | `/KB-FIN` | en ligne depuis le 08/09/2026 — finance, economie, droit et datamart risque, une entree ; servie par le depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) (site de projet GitHub Pages sous le domaine) |
-| `/KB-PHI` | depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) cree le 08/09/2026, Pages non active, aucune entree |
+| `/KB-PHI` | en ligne depuis le 09/09/2026 — philosophie, deux entrees (dossier Searle, The Mystery of Consciousness, 1997 : synthese et rapport detaille, en francais) ; servie par le depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) (site de projet GitHub Pages sous le domaine) |
 | `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) en ligne depuis le 09/09/2026, 1 entree (resume 2026 AI Barometer BE) |
-| `/KB-DEV` | en ligne depuis le 09/09/2026 — developpement logiciel, une entree ; servie par le depot [`KB-DEV`](https://github.com/CD-Consulting-R-D/KB-DEV) (site de projet GitHub Pages sous le domaine) |
+| `/KB-DEV` | en ligne depuis le 09/09/2026 — developpement logiciel, deux entrees ; servie par le depot [`KB-DEV`](https://github.com/CD-Consulting-R-D/KB-DEV) (site de projet GitHub Pages sous le domaine) |
 | `/chatbot-knowledgebase` | annonce, non commence |
 
 Chaque chapitre `KB-*` vit dans son propre depot de l'organisation et est servi comme
@@ -39,7 +39,7 @@ non commences.
 ## Hors perimetre — nommement
 
 - **Tout contenu de connaissance.** Les entrees vivent dans les depots de chapitre
-  (`KB-RISK`, `KB-FIN` et `KB-AI` en ligne ; `KB-PHI` cree, vide) ; ce depot ne porte
+  (`KB-RISK`, `KB-FIN`, `KB-AI`, `KB-PHI` et `KB-DEV` en ligne) ; ce depot ne porte
   que l'accueil, aucune donnee brute.
 - **Toute fonction serveur.** Site statique pur : pas de Netlify, pas de
   Supabase, pas de build, pas de dependance, pas de `node_modules`.
