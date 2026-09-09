@@ -27,7 +27,7 @@ Ce depot porte trois choses, et rien d'autre :
 | `/KB-FIN` | en ligne depuis le 08/09/2026 — finance, economie, droit et datamart risque, une entree ; servie par le depot [`KB-FIN`](https://github.com/CD-Consulting-R-D/KB-FIN) (site de projet GitHub Pages sous le domaine) |
 | `/KB-PHI` | depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) cree le 08/09/2026, Pages non active, aucune entree |
 | `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) en ligne depuis le 09/09/2026, 1 entree (resume 2026 AI Barometer BE) |
-| `/KB-DEV` | annonce le 09/09/2026, non commence (pas de depot) |
+| `/KB-DEV` | depot [`KB-DEV`](https://github.com/CD-Consulting-R-D/KB-DEV) cree le 09/09/2026, Pages non active, aucune entree |
 | `/chatbot-knowledgebase` | annonce, non commence |
 
 Chaque chapitre `KB-*` vit dans son propre depot de l'organisation et est servi comme
