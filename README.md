@@ -28,6 +28,7 @@ Ce depot porte trois choses, et rien d'autre :
 | `/KB-PHI` | en ligne depuis le 09/09/2026 — philosophie, deux entrees (dossier Searle, The Mystery of Consciousness, 1997 : synthese et rapport detaille, en francais) ; servie par le depot [`KB-PHI`](https://github.com/CD-Consulting-R-D/KB-PHI) (site de projet GitHub Pages sous le domaine) |
 | `/KB-AI` | depot [`KB-AI`](https://github.com/CD-Consulting-R-D/KB-AI) en ligne depuis le 09/09/2026, 1 entree (resume 2026 AI Barometer BE) |
 | `/KB-DEV` | en ligne depuis le 09/09/2026 — developpement logiciel, trois entrees ; servie par le depot [`KB-DEV`](https://github.com/CD-Consulting-R-D/KB-DEV) (site de projet GitHub Pages sous le domaine) |
+| `/KB-ECON` | en ligne depuis le 10/09/2026 — economie et modelisation economique, une entree (Agent-based Computational Economics, corpus 2001-2005 actualise 2026) ; servie par le depot [`KB-ECON`](https://github.com/CD-Consulting-R-D/KB-ECON) (site de projet GitHub Pages sous le domaine) |
 | `/chatbot-knowledgebase` | annonce, non commence |
 
 Chaque chapitre `KB-*` vit dans son propre depot de l'organisation et est servi comme
