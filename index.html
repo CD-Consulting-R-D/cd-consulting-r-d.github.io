@@ -1,326 +1,294 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CD Consulting R&amp;D</title>
-  <meta name="description" content="Independent analyses of technology, AI and risk, compiled from public sources.">
-  <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f7f6f3;
-      color: #1a1a1a;
-      padding: 3rem 2rem;
-      line-height: 1.6;
-    }
-    /* centrage vertical par marge auto : ne rogne jamais le haut quand le
-       contenu depasse la hauteur de fenetre (contrairement a align-items) */
-    main { max-width: 40rem; width: 100%; margin: auto; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Base — CD Consulting R&amp;D</title>
+<meta name="description" content="Independent analyses of technology, AI and risk, compiled from public sources.">
+<style>
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+:root{
+  color-scheme:light dark;
+  --bg:#f7f6f3;--panel:#ffffff;--panel-2:#efede8;
+  --ink:#1a1a1a;--ink-strong:#0e0e0e;--muted:#555c66;
+  --rule:#ddd8cf;--rule-soft:#e8e4dc;
+  --accent:#3d6478;--accent-hover:#274a5c;--hover:#f3f1ec;--sel:#d9e4ec;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1015;--panel:#161b23;--panel-2:#1a2029;
+  --ink:#dde3ea;--ink-strong:#f2f5f8;--muted:#8c96a4;
+  --rule:#242c37;--rule-soft:#1c232c;
+  --accent:#82aef0;--accent-hover:#a6c8f7;--hover:#1a212a;--sel:#2b3d57;}}
+:root[data-theme="dark"]{
+  --bg:#0d1015;--panel:#161b23;--panel-2:#1a2029;
+  --ink:#dde3ea;--ink-strong:#f2f5f8;--muted:#8c96a4;
+  --rule:#242c37;--rule-soft:#1c232c;
+  --accent:#82aef0;--accent-hover:#a6c8f7;--hover:#1a212a;--sel:#2b3d57;}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:52rem;margin:0 auto;padding:56px 24px 96px}
+a{color:var(--accent);text-underline-offset:3px}
+a:hover{color:var(--accent-hover)}
+::selection{background:var(--sel);color:var(--ink-strong)}
+.theme{position:fixed;top:14px;right:14px;font-family:var(--sans);font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;background:var(--panel);color:var(--muted);border:1px solid var(--rule);
+  border-radius:99px;padding:6px 12px;cursor:pointer;z-index:5}
+.theme:hover{color:var(--accent);border-color:var(--accent)}
+.mark{font-family:var(--sans);font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px;text-align:center}
+h1{font-family:var(--serif);font-size:clamp(28px,5vw,40px);font-weight:600;line-height:1.12;
+  letter-spacing:-.015em;text-align:center;margin:0 0 12px;color:var(--ink-strong)}
+.lead{font-family:var(--serif);font-size:17px;color:var(--muted);text-align:center;margin:0 0 34px}
+.marque{display:inline-block;width:9px;height:9px;flex:0 0 9px;
+  background:var(--fond,var(--c,var(--accent)));clip-path:var(--forme,none);
+  border:var(--bord,0);border-radius:var(--rayon,0)}
+.chip{font-family:var(--sans);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c,var(--accent));white-space:nowrap}
+.badge{font-family:var(--sans);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--ink-strong);color:var(--bg);border-radius:99px;padding:1px 7px;white-space:nowrap}
+.kw{font-family:var(--sans);font-size:10.5px;color:var(--muted);border:1px solid var(--rule);
+  border-radius:99px;padding:1px 8px;white-space:nowrap}
+.min{font-family:var(--sans);font-size:11px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.jour{font-family:var(--sans);font-size:11px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pair{font-family:var(--sans);font-size:10.5px;color:var(--muted);font-style:italic}
+/* barre de filtrage : entierement construite par script, absente sans script */
+.barre{border:1px solid var(--rule);border-radius:10px;background:var(--panel);
+  padding:12px 14px;margin:0 0 26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.barre input{flex:1 1 12rem;min-width:9rem;font:inherit;font-size:14px;color:var(--ink);
+  background:transparent;border:none;border-bottom:1px solid var(--rule);padding:4px 2px}
+.barre input:focus{outline:none;border-bottom-color:var(--accent)}
+.f{font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  background:transparent;color:var(--muted);border:1px solid var(--rule);border-radius:99px;
+  padding:3px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.f:hover{border-color:var(--accent);color:var(--accent)}
+.f[aria-pressed="true"]{border-color:var(--c,var(--accent));color:var(--c,var(--accent));background:var(--hover)}
+.compte{font-family:var(--sans);font-size:11.5px;color:var(--muted);margin:0 0 14px}
+.vide{font-family:var(--sans);font-size:14px;color:var(--muted);text-align:center;
+  border:1px dashed var(--rule);border-radius:10px;padding:24px}
+.chapitres{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:44px 0 0}
+.chapitres a{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--c,var(--accent));
+  border:1px solid var(--rule);border-radius:99px;padding:5px 12px}
+.chapitres a:hover{border-color:var(--c,var(--accent))}
+footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--rule);font-family:var(--sans);
+  font-size:12px;color:var(--muted);text-align:center}
+footer a{color:var(--muted)}
+@media (max-width:640px){.wrap{padding:34px 16px 64px}}
+[data-kb="KB-RISK"]{--c:#8c2f22;--ch:#6d2419;--forme:none;--fond:var(--c);--bord:0;--rayon:0;--filet:repeating-linear-gradient(90deg,var(--c) 0 7px,transparent 7px 11px)}
+[data-kb="KB-FIN"]{--c:#2f6b4f;--ch:#22503b;--forme:polygon(50% 0,100% 50%,50% 100%,0 50%);--fond:var(--c);--bord:0;--rayon:0;--filet:linear-gradient(90deg,var(--c),var(--c))}
+[data-kb="KB-AI"]{--c:#4a4a8c;--ch:#36366b;--forme:none;--fond:transparent;--bord:2px solid var(--c);--rayon:50%;--filet:repeating-linear-gradient(90deg,var(--c) 0 2px,transparent 2px 6px)}
+[data-kb="KB-DEV"]{--c:#35617a;--ch:#24485e;--forme:polygon(0 0,48% 50%,0 100%,42% 100%,90% 50%,42% 0);--fond:var(--c);--bord:0;--rayon:0;--filet:repeating-linear-gradient(90deg,var(--c) 0 16px,transparent 16px 23px)}
+[data-kb="KB-PHI"]{--c:#6b4a7a;--ch:#523760;--forme:polygon(50% 0,100% 100%,0 100%);--fond:var(--c);--bord:0;--rayon:0;--filet:linear-gradient(180deg,var(--c) 0 1px,transparent 1px 2px,var(--c) 2px 3px)}
+[data-kb="KB-ECON"]{--c:#7a5a24;--ch:#5d4419;--forme:none;--fond:repeating-linear-gradient(90deg,var(--c) 0 2px,transparent 2px 4px);--bord:0;--rayon:0;--filet:linear-gradient(90deg,var(--c),transparent)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-kb="KB-RISK"]{--c:#e0907f;--ch:#eeb0a3}
+  :root:not([data-theme="light"]) [data-kb="KB-FIN"]{--c:#7fc39f;--ch:#a5d8bb}
+  :root:not([data-theme="light"]) [data-kb="KB-AI"]{--c:#a0a0dc;--ch:#c0c0ec}
+  :root:not([data-theme="light"]) [data-kb="KB-DEV"]{--c:#8fb3c4;--ch:#b3cfdc}
+  :root:not([data-theme="light"]) [data-kb="KB-PHI"]{--c:#c6a2d3;--ch:#dcc0e5}
+  :root:not([data-theme="light"]) [data-kb="KB-ECON"]{--c:#d8b568;--ch:#e6cd96}}
+:root[data-theme="dark"] [data-kb="KB-RISK"]{--c:#e0907f;--ch:#eeb0a3}
+:root[data-theme="dark"] [data-kb="KB-FIN"]{--c:#7fc39f;--ch:#a5d8bb}
+:root[data-theme="dark"] [data-kb="KB-AI"]{--c:#a0a0dc;--ch:#c0c0ec}
+:root[data-theme="dark"] [data-kb="KB-DEV"]{--c:#8fb3c4;--ch:#b3cfdc}
+:root[data-theme="dark"] [data-kb="KB-PHI"]{--c:#c6a2d3;--ch:#dcc0e5}
+:root[data-theme="dark"] [data-kb="KB-ECON"]{--c:#d8b568;--ch:#e6cd96}
 
-    .mark {
-      font-size: 0.78rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: #3d6478;
-      margin-bottom: 1.4rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: clamp(1.9rem, 5.5vw, 2.9rem);
-      font-weight: 400;
-      line-height: 1.15;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .lead {
-      font-size: 1.05rem;
-      color: #555;
-      text-align: center;
-      margin-bottom: 2.6rem;
-    }
-
-    .banner {
-      display: block;
-      width: fit-content;
-      margin: 0 auto 2rem;
-      padding: 0.5rem 1.4rem;
-      border: 1px solid #3d6478;
-      border-radius: 2px;
-      font-family: system-ui, sans-serif;
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #3d6478;
-    }
-
-    .latest {
-      max-width: 26rem;
-      margin: 0 auto 2rem;
-      padding: 1rem 1.4rem;
-      border: 1px solid #3d6478;
-      border-radius: 2px;
-    }
-    .latest .label {
-      display: block;
-      font-family: system-ui, sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #3d6478;
-      margin-bottom: 0.6rem;
-      text-align: center;
-    }
-    .latest ul { list-style: none; }
-    .latest li { text-align: left; padding: 0.55rem 0; border-top: 1px solid #ddd8cf; }
-    .latest li:first-child { border-top: none; padding-top: 0; }
-    .latest li:last-child { padding-bottom: 0; }
-    .latest .row { display: flex; gap: 0.5rem; align-items: center; font-family: system-ui, sans-serif; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8578; margin-bottom: 0.2rem; }
-    .latest .chip { border: 1px solid #b9c8d0; border-radius: 99px; padding: 0.05rem 0.5rem; color: #3d6478; }
-    .latest .badge { background: #8c2f22; color: #fff; border-radius: 99px; padding: 0.05rem 0.5rem; letter-spacing: 0.14em; }
-    .latest a.t { font-size: 0.98rem; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
-    .latest a.t:hover { border-bottom-color: #3d6478; }
-    .latest .stake { display: block; font-family: system-ui, sans-serif; font-size: 0.8rem; line-height: 1.45; color: #444; margin-top: 0.2rem; }
-    .latest .stake strong { color: #1a1a1a; font-weight: 600; }
-    .latest .empty { text-align: center; font-family: system-ui, sans-serif; font-size: 0.8rem; color: #6f6a5e; margin: 0; }
-
-    section { margin-bottom: 2.6rem; }
-    h2 {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: #3d6478;
-      padding-bottom: 0.55rem;
-      border-bottom: 1px solid #ddd8cf;
-      margin-bottom: 1.3rem;
-    }
-
-    ul { list-style: none; }
-    li { margin-bottom: 1.15rem; }
-    li:last-child { margin-bottom: 0; }
-
-    code {
-      font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
-      font-size: 0.92rem;
-      color: #1a1a1a;
-      background: #ecebe6;
-      padding: 0.12rem 0.42rem;
-      border-radius: 2px;
-    }
-    .note {
-      display: block;
-      font-family: system-ui, sans-serif;
-      font-size: 0.86rem;
-      color: #555;
-      margin-top: 0.35rem;
-    }
-    .topics {
-      list-style: none;
-      margin-top: 0.5rem;
-      padding-left: 1rem;
-      border-left: 2px solid #ddd8cf;
-    }
-    .topics li {
-      font-family: system-ui, sans-serif;
-      font-size: 0.86rem;
-      color: #555;
-      margin-bottom: 0.3rem;
-    }
-    .soon {
-      font-family: system-ui, sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #8a8578;
-      margin-left: 0.6rem;
-      white-space: nowrap;
-    }
-
-    dl { font-size: 1rem; }
-    dt {
-      font-family: system-ui, sans-serif;
-      font-size: 0.74rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #8a8578;
-      margin-bottom: 0.25rem;
-    }
-    dd { margin-bottom: 1.1rem; }
-    dd:last-child { margin-bottom: 0; }
-
-    a { color: #3d6478; text-decoration: none; border-bottom: 1px solid #b9c8d0; }
-    a:hover { border-bottom-color: #3d6478; }
-
-    footer {
-      margin-top: 3.2rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid #ddd8cf;
-      text-align: center;
-      font-family: system-ui, sans-serif;
-      font-size: 0.72rem;
-      color: #8a8578;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body { background: #12151a; color: #eceef1; }
-      .lead, .note, .topics li { color: #a8adb6; }
-      .mark, h2, .banner, .latest, .latest .label, a { color: #8fb3c4; }
-      .banner, .latest { border-color: #8fb3c4; }
-      .latest li { border-top-color: #2a3340; }
-      .latest .row { color: #767c86; }
-      .latest .chip { border-color: #3f5866; color: #8fb3c4; }
-      .latest .stake { color: #b8bec8; }
-      .latest .stake strong { color: #dde3ea; }
-      h2, footer, .topics { border-color: #2a3038; }
-      code { background: #1d222a; color: #eceef1; }
-      .soon, dt, footer { color: #767c86; }
-      a { border-bottom-color: #3a4a56; }
-      a:hover { border-bottom-color: #8fb3c4; }
-    }
-  </style>
-</head>
+#liste>.liste{margin-top:0}
+.une{border:1px solid var(--rule);border-radius:10px;background:var(--panel);overflow:hidden;margin:0 0 22px}
+.une .filet{height:4px;background:var(--filet)}
+.une .corps{padding:22px 24px 22px}
+.une .tete{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.une .t{display:block;font-family:var(--serif);font-size:clamp(21px,3.4vw,27px);line-height:1.2;
+  font-weight:600;letter-spacing:-.015em;color:var(--ink-strong);text-decoration:none;margin-bottom:10px}
+.une .t:hover{color:var(--c)}
+.une .enjeu{font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--muted);margin:0 0 14px;max-width:62ch}
+.une .bas{display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding-top:12px;border-top:1px solid var(--rule-soft)}
+.une .sep{flex:1}
+.liste{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.liste li{display:grid;grid-template-columns:8.2rem 1fr auto;gap:0 14px;align-items:start;
+  padding:10px 8px;border-bottom:1px solid var(--rule-soft)}
+.liste li:hover{background:var(--hover)}
+.liste .c1{display:flex;align-items:center;gap:7px;padding-top:2px}
+.liste .t{font-family:var(--serif);font-size:16px;line-height:1.35;color:var(--ink-strong);
+  text-decoration:none;border-bottom:1px solid transparent}
+.liste .t:hover{border-bottom-color:var(--c)}
+.liste .enjeu{font-family:var(--serif);font-size:13.5px;line-height:1.4;color:var(--muted);margin:3px 0 0;max-width:56ch}
+.liste .sous{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.liste .fin{display:flex;align-items:center;gap:8px;justify-self:end;padding-top:2px}
+@media (max-width:700px){
+  .liste li{grid-template-columns:1fr auto}
+  .liste .c1{order:1}.liste .fin{order:2;justify-self:end}
+  .liste .c2{grid-column:1/-1;order:3;margin-top:3px}}
+</style>
+<script>(function(){try{var t=localStorage.getItem("kb-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script></head>
 <body>
-  <main>
-    <p class="mark">CD Consulting R&amp;D</p>
-    <h1>Knowledge Base</h1>
-    <p class="lead">Independent analyses of technology, AI and risk, compiled from public sources.</p>
-    <div class="latest">
-      <span class="label">Latest</span>
-      <ul>
-        <li>
-          <div class="row"><span class="chip">KB-ECON</span><span class="badge">New</span><span>19 min</span></div>
-          <a class="t" href="KB-ECON/ace1.html">ACE: markets made of software agents</a>
-          <span class="stake"><strong>If you model an economy with one representative agent</strong>, here is what changes when you give it thousands — from 2001 to today’s LLM agents.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-DEV</span><span class="badge">New</span><span>8 min</span></div>
-          <a class="t" href="KB-DEV/5b1f.html">An AI-use register on M365, no premium</a>
-          <span class="stake"><strong>If you must show who uses generative AI before the AI Act asks</strong>, this register takes an hour of clicks and no premium licence.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-PHI</span><span class="badge">New</span><span>8 min</span></div>
-          <a class="t" href="KB-PHI/3e9f.html">Searle’s Mystery of Consciousness, in brief</a>
-          <span class="stake"><strong>If you want to see where the science of consciousness chose its questions</strong>, one philosopher graded six rival theories in 1997 — a two-page synthesis, in French.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-PHI</span><span class="badge">New</span><span>21 min</span></div>
-          <a class="t" href="KB-PHI/6b1d.html">Searle chapter by chapter, and 2025 readings</a>
-          <span class="stake"><strong>If you are reading Searle’s 1997 book</strong>, this chapter-by-chapter report and annotated 2025 literature review keep pace with it — in French.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-DEV</span><span class="badge">New</span><span>8 min</span></div>
-          <a class="t" href="KB-DEV/a2c6.html">Sandboxes: from laptop to cloud account</a>
-          <span class="stake"><strong>If you test against the wrong environment, or leave one running</strong>, fourteen clickable slides show how to isolate, reproduce and tear down.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-DEV</span><span class="badge">New</span><span>5 min</span></div>
-          <a class="t" href="KB-DEV/d4e7.html">Microsoft portals, from tenant to editor</a>
-          <span class="stake"><strong>If you have ever wondered which Microsoft portal does what</strong>, fourteen clickable slides map the whole chain.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-AI</span><span class="badge">New</span><span>6 min</span></div>
-          <a class="t" href="KB-AI/c8d1.html">AI in Belgian finance: the 2026 Barometer</a>
-          <span class="stake"><strong>If your AI strategy is ready but nothing ships</strong>, twenty Belgian institutions explain the execution gap.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-FIN</span><span>15 min</span></div>
-          <a class="t" href="KB-FIN/b7c3.html">Real options, twenty-five years on</a>
-          <span class="stake"><strong>If you ever had to defend a project with a zero NPV</strong>, this is the method that values what DCF ignores.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-RISK</span><span>15 min</span></div>
-          <a class="t" href="KB-RISK/e6a4.html">Keeping secrets and code on GitHub</a>
-          <span class="stake"><strong>If you keep API keys in a private repository</strong>, read this before the next backup runs.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-RISK</span><span>4 min</span></div>
-          <a class="t" href="KB-RISK/7b3d.html">AI agents and the erosion of human oversight</a>
-          <span class="stake"><strong>If “a human will check” is your safeguard</strong>, the authors explain why it wears out.</span>
-        </li>
-        <li>
-          <div class="row"><span class="chip">KB-RISK</span><span>27 min</span></div>
-          <a class="t" href="KB-RISK/4f2a.html">WEF Global Risks Reports 2020–2026</a>
-          <span class="stake"><strong>If you brief a board on risk</strong>, this is where AI entered the list, and how fast.</span>
-        </li>
-      </ul>
-    </div>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <code>/knowledgebase</code><span class="soon">planned</span>
-          <span class="note">Topics to be covered:</span>
-          <ul class="topics">
-            <li>Computer Science and AI</li>
-            <li>Finance Economics Law &amp; Risk Datamart</li>
-            <li>Philosophy</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-RISK/"><code>/KB-RISK</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-RISK/e6a4.html">Keeping secrets and code on GitHub: lessons from 2022–2026</a> — 8 September 2026</li>
-            <li><a href="KB-RISK/7b3d.html">AI agents and the erosion of human oversight — a reading note</a> — 7 September 2026</li>
-            <li><a href="KB-RISK/4f2a.html">WEF Global Risks Reports 2020–2026: the rise of AI risk</a> — 7 September 2026</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-FIN/"><code>/KB-FIN</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-FIN/b7c3.html">Real options, twenty-five years on: Luehrman's toolkit, and where the field stands in 2026</a> — 8 September 2026</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-PHI/"><code>/KB-PHI</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-PHI/3e9f.html">« The Mystery of Consciousness » (Searle, 1997) — synthèse du livre et de ses commentaires</a> — 9 September 2026</li>
-            <li><a href="KB-PHI/6b1d.html">« The Mystery of Consciousness » (John R. Searle, 1997) — compte-rendu par chapitre et revue de la littérature récente</a> — 9 September 2026</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-DEV/"><code>/KB-DEV</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-DEV/5b1f.html">An AI-use request register on Microsoft 365, with standard connectors only</a> — 9 September 2026</li>
-            <li><a href="KB-DEV/a2c6.html">Sandbox development and test environments: from local containers to governed cloud accounts</a> — 9 September 2026</li>
-            <li><a href="KB-DEV/d4e7.html">From cloud governance to the developer workstation</a> — 9 September 2026</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-AI/"><code>/KB-AI</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-AI/c8d1.html">The 2026 AI Barometer: where Belgian financial services actually stand on AI</a> — 9 September 2026</li>
-          </ul>
-        </li>
-        <li>
-          <a href="KB-ECON/"><code>/KB-ECON</code></a><span class="soon">online</span>
-          <ul class="topics">
-            <li><a href="KB-ECON/ace1.html">Agent-based Computational Economics: markets made of software agents, from the Iowa State laboratories of 2001-2005 to central banks and language-model agents in 2026</a> — 10 September 2026</li>
-          </ul>
-        </li>
-        <li><code>/chatbot-knowledgebase</code><span class="soon">planned</span></li>
-      </ul>
-      <p class="note">These paths are not live yet. They are listed here to announce what the domain will serve.</p>
-    </section>
-
-    <section>
-      <h2>Site Owner</h2>
-      <dl>
-        <dt>Owner</dt>
-        <dd>Christo Datso</dd>
-        <dt>Prototypes (analyse de films et projets cinématographiques)</dt>
-        <dd><a href="https://www.cdatso.be">www.cdatso.be</a></dd>
-        <dt>Code</dt>
-        <dd><a href="https://github.com/CD-Consulting-R-D">github.com/CD-Consulting-R-D</a></dd>
-      </dl>
-    </section>
-
-    <footer>cd-consulting-rd.be &mdash; placeholder page, served by GitHub Pages</footer>
-  </main>
+<button class="theme" id="theme" type="button" aria-label="Switch between light and dark">Light / Dark</button>
+<main class="wrap">
+<p class="mark">CD Consulting R&amp;D</p>
+<h1>Knowledge Base</h1>
+<p class="lead">Every entry, newest first. 11 entries across six chapters.</p>
+<div id="liste">
+<div class="une" data-kb="KB-ECON" data-kw="modelling autonomous-agents central-banks">
+  <div class="filet"></div>
+  <div class="corps">
+    <div class="tete"><span class="marque"></span><span class="chip">KB-ECON</span><span class="badge">New</span><span class="sep"></span><span class="jour">10 September 2026</span></div>
+    <a class="t" href="https://www.cd-consulting-rd.be/KB-ECON/ace1.html">Agent-based Computational Economics: markets made of software agents, from the Iowa State laboratories of 2001-2005 to central banks and language-model agents in 2026</a>
+    <p class="enjeu">If you model an economy with one representative agent, here is what changes when you give it thousands — from 2001 to today's LLM agents.</p>
+    <div class="bas"><span class="kw">synthesis</span><span class="kw">modelling</span><span class="kw">autonomous-agents</span><span class="kw">central-banks</span><span class="sep"></span><span class="min">19 min</span></div>
+  </div>
+</div>
+<ul class="liste">
+<li data-kb="KB-AI" data-kw="ai adoption belgium">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-AI</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-AI/c8d1.html">The 2026 AI Barometer: where Belgian financial services actually stand on AI</a>
+    <p class="enjeu">If your AI strategy is ready but nothing ships, twenty Belgian institutions explain the execution gap.</p>
+    <span class="sous"><span class="kw">report summary</span><span class="kw">ai</span><span class="kw">adoption</span><span class="kw">belgium</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">6 min</span></span>
+</li>
+<li data-kb="KB-DEV" data-kw="microsoft-365 compliance ai-act automation">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-DEV</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-DEV/5b1f.html">An AI-use request register on Microsoft 365, with standard connectors only</a>
+    <p class="enjeu">If you must show who uses generative AI before the AI Act asks, this register takes an hour of clicks and no premium licence.</p>
+    <span class="sous"><span class="kw">guide</span><span class="kw">microsoft-365</span><span class="kw">compliance</span><span class="kw">ai-act</span><span class="kw">automation</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">8 min</span></span>
+</li>
+<li data-kb="KB-DEV" data-kw="test-environments cloud automation">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-DEV</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-DEV/a2c6.html">Sandbox development and test environments: from local containers to governed cloud accounts</a>
+    <p class="enjeu">If you test against the wrong environment, or leave one running, fourteen clickable slides show how to isolate, reproduce and tear down.</p>
+    <span class="sous"><span class="kw">slide deck</span><span class="kw">test-environments</span><span class="kw">cloud</span><span class="kw">automation</span><span class="pair">with d4e7</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">8 min</span></span>
+</li>
+<li data-kb="KB-DEV" data-kw="microsoft-365 cloud governance">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-DEV</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-DEV/d4e7.html">From cloud governance to the developer workstation</a>
+    <p class="enjeu">If you have ever wondered which Microsoft portal does what, fourteen clickable slides map the whole chain.</p>
+    <span class="sous"><span class="kw">slide deck</span><span class="kw">microsoft-365</span><span class="kw">cloud</span><span class="kw">governance</span><span class="pair">with a2c6</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">5 min</span></span>
+</li>
+<li data-kb="KB-PHI" data-kw="philosophy-of-mind consciousness">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-PHI</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-PHI/6b1d.html">« The Mystery of Consciousness » (John R. Searle, 1997) — compte-rendu par chapitre et revue de la littérature récente</a>
+    <p class="enjeu">If you are reading Searle's 1997 book, this chapter-by-chapter report and annotated 2025 literature review keep pace with it.</p>
+    <span class="sous"><span class="kw">reading note</span><span class="kw">philosophy-of-mind</span><span class="kw">consciousness</span><span class="chip">FR</span><span class="pair">with 3e9f</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">21 min</span></span>
+</li>
+<li data-kb="KB-PHI" data-kw="philosophy-of-mind consciousness">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-PHI</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-PHI/3e9f.html">« The Mystery of Consciousness » (Searle, 1997) — synthèse du livre et de ses commentaires</a>
+    <p class="enjeu">If you want to see where the science of consciousness chose its questions, one philosopher graded six rival theories in 1997 — a two-page synthesis.</p>
+    <span class="sous"><span class="kw">synthesis</span><span class="kw">philosophy-of-mind</span><span class="kw">consciousness</span><span class="chip">FR</span><span class="pair">with 6b1d</span></span></span>
+  <span class="fin"><span class="jour">9 September 2026</span><span class="min">8 min</span></span>
+</li>
+<li data-kb="KB-RISK" data-kw="secrets application-security governance">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-RISK</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-RISK/e6a4.html">Keeping secrets and code on GitHub: what the last four years of incidents teach a small organisation</a>
+    <p class="enjeu">If you keep API keys in a private repository, read this before the next backup runs.</p>
+    <span class="sous"><span class="kw">analysis</span><span class="kw">secrets</span><span class="kw">application-security</span><span class="kw">governance</span></span></span>
+  <span class="fin"><span class="jour">8 September 2026</span><span class="min">15 min</span></span>
+</li>
+<li data-kb="KB-FIN" data-kw="real-options investment-appraisal modelling">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-FIN</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-FIN/b7c3.html">Real options, twenty-five years on: Luehrman's toolkit, and where the field stands in 2026</a>
+    <p class="enjeu">If you ever had to defend a project with a zero NPV, this is the method that values what DCF ignores.</p>
+    <span class="sous"><span class="kw">synthesis</span><span class="kw">real-options</span><span class="kw">investment-appraisal</span><span class="kw">modelling</span></span></span>
+  <span class="fin"><span class="jour">8 September 2026</span><span class="min">15 min</span></span>
+</li>
+<li data-kb="KB-RISK" data-kw="autonomous-agents governance ai-act">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-RISK</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-RISK/7b3d.html">"AI Agents Push Humans Out of the Loop" — a critical reading note</a>
+    <p class="enjeu">If "a human will check" is your safeguard, the authors explain why it wears out.</p>
+    <span class="sous"><span class="kw">reading note</span><span class="kw">autonomous-agents</span><span class="kw">governance</span><span class="kw">ai-act</span></span></span>
+  <span class="fin"><span class="jour">7 September 2026</span><span class="min">4 min</span></span>
+</li>
+<li data-kb="KB-RISK" data-kw="systemic-risk ai disinformation governance">
+  <span class="c1"><span class="marque"></span><span class="chip">KB-RISK</span></span>
+  <span class="c2"><a class="t" href="https://www.cd-consulting-rd.be/KB-RISK/4f2a.html">Technology, Information and AI Risks in the WEF Global Risks Reports, 2020–2026</a>
+    <p class="enjeu">If you brief a board on risk, this is where AI entered the list, and how fast.</p>
+    <span class="sous"><span class="kw">analysis</span><span class="kw">systemic-risk</span><span class="kw">ai</span><span class="kw">disinformation</span><span class="kw">governance</span><span class="pair"><a href="https://www.cd-consulting-rd.be/KB-RISK/9c1e.html">illustrated companion</a></span></span></span>
+  <span class="fin"><span class="jour">7 September 2026</span><span class="min">27 min</span></span>
+</li>
+</ul>
+</div>
+<nav class="chapitres"><a href="https://www.cd-consulting-rd.be/KB-RISK/" data-kb="KB-RISK"><span class="marque"></span>KB-RISK</a><a href="https://www.cd-consulting-rd.be/KB-FIN/" data-kb="KB-FIN"><span class="marque"></span>KB-FIN</a><a href="https://www.cd-consulting-rd.be/KB-AI/" data-kb="KB-AI"><span class="marque"></span>KB-AI</a><a href="https://www.cd-consulting-rd.be/KB-DEV/" data-kb="KB-DEV"><span class="marque"></span>KB-DEV</a><a href="https://www.cd-consulting-rd.be/KB-PHI/" data-kb="KB-PHI"><span class="marque"></span>KB-PHI</a><a href="https://www.cd-consulting-rd.be/KB-ECON/" data-kb="KB-ECON"><span class="marque"></span>KB-ECON</a></nav>
+<footer><p>Independent analyses compiled from public sources. Text under CC BY-NC-ND 4.0.<br>
+Prototypes and film analyses: <a href="https://www.cdatso.be">www.cdatso.be</a> &middot; Code: <a href="https://github.com/CD-Consulting-R-D">github.com/CD-Consulting-R-D</a></p></footer>
+</main>
+<script>(function(){var b=document.getElementById("theme");b.addEventListener("click",function(){var r=document.documentElement;var cur=r.getAttribute("data-theme");var sys=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var now=(cur||sys)==="dark"?"light":"dark";r.setAttribute("data-theme",now);try{localStorage.setItem("kb-theme",now);}catch(e){}});})();</script>
+<script>
+/* Filtrage de confort : la liste est deja complete dans le HTML. Sans script, tout
+   reste lisible et trie ; seuls la recherche et les filtres manquent (patron du site
+   des films, note de degradation assumee). */
+(function(){
+  var liste=document.getElementById("liste");
+  if(!liste)return;
+  var lignes=[].slice.call(liste.querySelectorAll("[data-kb]"));
+  var CANON=["KB-RISK","KB-FIN","KB-AI","KB-DEV","KB-PHI","KB-ECON"];
+  var chapitres=[],n={};
+  lignes.forEach(function(l){
+    if(chapitres.indexOf(l.dataset.kb)<0)chapitres.push(l.dataset.kb);
+    (l.dataset.kw||"").split(" ").forEach(function(m){if(m)n[m]=(n[m]||0)+1;});
+  });
+  chapitres.sort(function(a,b){return CANON.indexOf(a)-CANON.indexOf(b);});
+  /* seuls les mots-cles qui portent au moins deux entrees deviennent des boutons :
+     une facette a une entree n'est pas une facette. Les autres restent atteignables
+     par la recherche libre. */
+  var mots=Object.keys(n).filter(function(m){return n[m]>1;}).sort();
+  var barre=document.createElement("div");barre.className="barre";
+  var q=document.createElement("input");
+  q.type="search";q.placeholder="Search titles and keywords";q.setAttribute("aria-label","Search entries");
+  barre.appendChild(q);
+  var actifsC={},actifsM={};
+  function bouton(txt,kb,onclick){
+    var b=document.createElement("button");b.type="button";b.className="f";
+    b.setAttribute("aria-pressed","false");if(kb)b.setAttribute("data-kb",kb);
+    if(kb){var m=document.createElement("span");m.className="marque";b.appendChild(m);}
+    b.appendChild(document.createTextNode(txt));b.addEventListener("click",onclick);return b;
+  }
+  chapitres.forEach(function(c){
+    var b=bouton(c,c,function(){
+      actifsC[c]=!actifsC[c];b.setAttribute("aria-pressed",actifsC[c]?"true":"false");rend();});
+    barre.appendChild(b);
+  });
+  mots.forEach(function(m){
+    var b=bouton(m,null,function(){
+      actifsM[m]=!actifsM[m];b.setAttribute("aria-pressed",actifsM[m]?"true":"false");rend();});
+    barre.appendChild(b);
+  });
+  var raz=document.createElement("button");raz.type="button";raz.className="f";raz.textContent="Reset";
+  raz.addEventListener("click",function(){
+    actifsC={};actifsM={};q.value="";
+    [].slice.call(barre.querySelectorAll(".f")).forEach(function(b){b.setAttribute("aria-pressed","false");});
+    rend();});
+  barre.appendChild(raz);
+  var compte=document.createElement("p");compte.className="compte";
+  var vide=document.createElement("p");vide.className="vide";
+  vide.textContent="No entry matches these filters.";vide.hidden=true;
+  liste.parentNode.insertBefore(barre,liste);
+  liste.parentNode.insertBefore(compte,liste);
+  liste.parentNode.insertBefore(vide,liste.nextSibling);
+  q.addEventListener("input",rend);
+  function actifs(o){var k=[];for(var x in o)if(o[x])k.push(x);return k;}
+  function rend(){
+    var cs=actifs(actifsC),ms=actifs(actifsM),t=q.value.trim().toLowerCase(),n=0;
+    lignes.forEach(function(l){
+      var ok=true;
+      if(cs.length&&cs.indexOf(l.dataset.kb)<0)ok=false;
+      if(ok&&ms.length){var k=(l.dataset.kw||"").split(" ");
+        ok=ms.every(function(m){return k.indexOf(m)>=0;});}
+      if(ok&&t)ok=(l.textContent+" "+(l.dataset.kw||"")).toLowerCase().indexOf(t)>=0;
+      l.hidden=!ok;if(ok)n++;
+    });
+    compte.textContent=n+(n===1?" entry":" entries")+(n===lignes.length?"":" of "+lignes.length);
+    vide.hidden=n>0;
+  }
+  rend();
+})();
+</script>
 </body>
 </html>

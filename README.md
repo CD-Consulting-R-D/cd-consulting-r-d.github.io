@@ -13,8 +13,10 @@ Ce depot porte trois choses, et rien d'autre :
   a GitHub Pages. **Ce fichier ne se supprime jamais** : sans lui, le domaine
   cesse de repondre.
 - **`index.html`** — la page d'accueil « Knowledge Base » en anglais, autoportante
-  (CSS embarque, zero ressource externe), qui pointe vers la derniere entree
-  publiee et annonce les chemins a venir.
+  (CSS et script embarques, zero ressource externe), qui liste toutes les entrees
+  principales publiees, la plus recente en tete, plus un filtrage de confort et la
+  rangee des six chapitres. Regeneree a chaque publication par
+  `CDC\outils-site\gen-accueil.py`, depuis le registre `entrees.json`.
 - **`.gitattributes` / `.gitignore`** — fins de ligne LF normalisees et
   exclusions de securite (patron de service, regles N-3 et N-4).
 
@@ -49,8 +51,9 @@ non commences.
 - **Le DNS et le certificat.** Ils vivent chez le registrar (Infomaniak) et
   chez GitHub ; ce depot n'en porte que le `CNAME`. Le plan de saisie est
   tenu hors depot par le proprietaire.
-- **La collecte de donnees.** Aucun formulaire, aucun cookie, aucun script,
-  aucune mesure d'audience.
+- **La collecte de donnees.** Aucun formulaire, aucun cookie, aucun script tiers,
+  aucune ressource distante, aucune mesure d'audience (le filtrage de la liste est
+  un script embarque, sans dependance ni appel sortant — charte editoriale KB, regle 3).
 
 ## Notes de tenue
 
